@@ -1,7 +1,31 @@
-.About{
+.about{
     text-align: left;
+    margin: 0px 100px 0px 100px;
 }
 
-p{
-    color: black;
+.title{
+    font-size: 60px;
+}
+
+.about_desc{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.team_title{
+    font-size: 40px;
+    margin-top: 100px;
+}
+
+.team_desc{
+    font-size: 20px;
+}
+
+.team_subtitle{
+    tab-size: 5;
+}
+
+.tab{
+    display: inline;
+    margin-left: 50px;
 }
