@@ -18,6 +18,7 @@ export const Header = () => (
   <Styles>
     <Navbar expand="lg">
       <Navbar.Brand href="/">COVID-19 Exposure Modeler</Navbar.Brand>
+      {/* <Navbar.Brand href="/calculate-home">Duke University</Navbar.Brand> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
