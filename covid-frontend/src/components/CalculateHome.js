@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './CalculateHome.css';
 
 function CalculateHome(){
     return(
@@ -9,11 +9,13 @@ function CalculateHome(){
                 What kind of assessment?
             </p>
             <a href="/basic-classroom">
-                <button className="calculate-basic">BASIC</button><br/>
+                <button className="calculate-basic-button">BASIC</button><br/>
             </a>
+            <p className="button-desc">The <strong>basic assessment</strong> calculates...</p>
             <a href="/calculate-home">
-                <button className="calculate-advanced">ADVANCED</button>
+                <button className="calculate-advanced-button">ADVANCED</button>
             </a>
+            <p className="button-desc">The <strong>advanced assessment</strong> calculates...</p>
         </nav>
     )
 }

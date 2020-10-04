@@ -39,9 +39,9 @@ function BasicClassroom(){
       console.log(body)
     }
     return(
-        <div>
-            <h2 className="title">Step 1: Classroom Information</h2>
-            <br></br>
+        <div className="basic-classroom">
+            <h2 className="title">STEP 1: CLASSROOM INFORMATION</h2>
+            <p className="desc">Please input the appropriate values in the input boxes below.</p>
             <form>
               <table className="inputs">
                 <tbody>
