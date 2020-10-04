@@ -1,31 +1,26 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 import './App.css';
-import Header from './components/Header'
-import BasicLocation from './components/BasicLocation'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home';
+import { Header } from './components/Header';
+import About from './components/About';
+import BasicClassroom from './components/BasicClassroom';
+import CalculateHome from './components/CalculateHome';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
-       <div>
-           <ul>
-             <li>
-               <Link to="/basic">Basic Classroom</Link>
-             </li>
-           </ul>
-         <Switch>
-           <Route path="/basic" component={BasicLocation}>
-           </Route>
-         </Switch>
-       </div>
-     </Router>
+        <Header /> {/*@Helen im assuming header's the nav bar?*/}
+        <Switch>
+          {/*@Helen just wrote temp paths for now; feel free to change em*/}
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/basic-classroom" component={BasicClassroom} />
+          <Route path="/calculate-home" component={CalculateHome} />
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import React from 'react';
+import '../App.css';
 
-function BasicClassroom() {
-  return (
-    <>
-    <h1>BasicClassroom</h1>
-    </>
-  );
+function BasicClassroom(){
+    return(
+        <div>
+            <h1>Basic Classroom Calculation Page</h1>
+        </div>
+    )
 }
 
 export default BasicClassroom;
