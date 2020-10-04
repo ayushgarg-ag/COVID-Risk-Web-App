@@ -12,10 +12,10 @@ function Home(){
             </p>
             {/* 
             @Donghan I made your buttons links, also for styling for vars w/ 2 words I changed it to word1-word2 instead of _ */}
-            <a href="/about">
+            <a href="/calculate-home">
                 <button className="calculate-button">CALCULATE</button><br/>
             </a>
-            <a href="/calculate-home">
+            <a href="/about">
                 <button className="works-button">HOW IT WORKS</button>
             </a>
         </nav>

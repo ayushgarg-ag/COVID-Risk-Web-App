@@ -1,26 +1,31 @@
 .about{
     text-align: left;
-    margin: 0px 100px 0px 100px;
+    margin: 100px 100px 0px 100px;
 }
 
 .title{
     font-size: 60px;
 }
 
-.about_desc{
+.about-desc{
     font-size: 20px;
-    margin-bottom: 0px;
+    margin: 30px 0px;
 }
 
-.team_title{
+.team-segment{
+    margin: 100px 0px 100px 0px;
+}
+
+.team-title{
     font-size: 50px;
-    margin-top: 100px;
+    margin-bottom: 30px;
 }
 
-.team_desc{
+.team-desc{
     font-size: 20px;
+    margin-bottom: 20px;
 }
 
-.team_subtitle{
-    tab-size: 5;
+.team-subtitle{
+    font-size: 20px;
 }
