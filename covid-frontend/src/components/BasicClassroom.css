@@ -1,0 +1,40 @@
+.title {
+  text-align: left;
+}
+
+.inputs {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+td {
+  padding-bottom: 50px;
+}
+.label {
+  /* font-family: "Quicksand"; */
+  text-align: left;
+  line-height: 62px;
+  margin-bottom: 15px;
+  font-size: 50px;
+  align-items: center;
+}
+
+input {
+  height: 82px;
+  width: 284px;
+  border-radius: 15px;
+  font-size: 36px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  text-align: center;
+  left: 1155px;
+  top: 344px;
+}
+
+.btn.btn-primary {
+  width: 261px;
+  height: 83px;
+  margin-left: 979px;
+  border-radius: 15px;
+  font-size: 48px;
+}
