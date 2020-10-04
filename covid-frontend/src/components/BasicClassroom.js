@@ -9,22 +9,22 @@ function BasicClassroom(){
     var classFloorArea;
     var classHeight;
     function setNumFaculty(event) {
-      numFaculty = event.target.value;
+      numFaculty = parseInt(event.target.value);
     }
     function setNumStudents(event) {
-      numStudents = event.target.value;
+      numStudents = parseInt(event.target.value);
     }
     function setNumSessions(event) {
-      numSessions = event.target.value;
+      numSessions = parseInt(event.target.value);
     }
     function setDurationSessions(event) {
-      durationSessions = event.target.value;
+      durationSessions = parseInt(event.target.value);
     }
     function setClassFloorArea(event) {
-      classFloorArea = event.target.value;
+      classFloorArea = parseFloat(event.target.value);
     }
     function setClassHeight(event) {
-      classHeight = event.target.value;
+      classHeight = parseFloat(event.target.value);
     }
     function next() {
       var body = {
@@ -35,7 +35,6 @@ function BasicClassroom(){
         classFloorArea,
         classHeight
       };
-      
       // TODO: Somehow carry this data to the next page/function and send data to python backend
       console.log(body)
     }
