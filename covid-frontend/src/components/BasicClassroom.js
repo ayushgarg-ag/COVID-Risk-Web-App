@@ -35,6 +35,7 @@ function BasicClassroom(){
         classFloorArea,
         classHeight
       };
+      
       // TODO: Somehow carry this data to the next page/function and send data to python backend
       console.log(body)
     }
