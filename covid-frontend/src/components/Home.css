@@ -12,13 +12,18 @@
     margin: 30px 0px;
 }
 
-.calculate-button{
+.btn.btn-primary{
+    width: 200px;
     font-size: 30px;
     margin-top: 50px;
-    border-radius: 15px;
+    border-radius: 0px;
 }
 
-.works-button{
+.btn.btn-basic{
+    width: 150px;
     font-size: 15px;
     margin-top: 10px;
+    border-radius: 10px;
+    color: black;
+    background-color: silver;
 }
