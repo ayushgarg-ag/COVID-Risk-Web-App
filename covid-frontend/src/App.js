@@ -17,12 +17,13 @@ function App() {
           {/*@Helen just wrote temp paths for now; feel free to change em*/}
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/basic-classroom" component={BasicClassroom} /> 
-          <Route path="/calculate-home" component={CalculateHome} /> 
+          <Route path="/basic-classroom" component={BasicClassroom} />
+          <Route path="/calculate-home" component={CalculateHome} />
         </Switch>
       </Router>
     </div>
   );
 }
+
 
 export default App;
