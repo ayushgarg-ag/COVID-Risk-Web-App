@@ -5,12 +5,12 @@ import styled from 'styled-components';
 const Styles = styled.div`
   .navbar { background-color: #222; }
   a, .navbar-nav, .navbar-light .nav-link {
-    color: #c0b3f2;
+    color: #65B7FF;
     &:hover { color: white; }
   }
   .navbar-brand {
     font-size: 1.4em;
-    color: #c0b3f2;
+    color: #65B7FF;
     &:hover { color: white; }
   }
 `;
@@ -23,7 +23,7 @@ export const Header = () => (
         <Nav className="ml-auto">
           <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item> 
           <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/calculate">Calculate</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/calculate-home">Calculate</Nav.Link></Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
