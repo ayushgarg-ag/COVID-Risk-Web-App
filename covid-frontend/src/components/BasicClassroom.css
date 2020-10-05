@@ -1,40 +1,67 @@
-.title {
+/*
+@Kevin updated styling a bit to be consistent w/ rest of dashboard
+*/
+
+.basic-classroom{
   text-align: left;
+  margin: 100px;
 }
 
+.title {
+  font-size: 60px;
+}
+
+.desc{
+  font-size: 20px;
+  margin: 30px 0px;
+}
+
+/*
 .inputs {
   margin-left: auto;
   margin-right: auto;
   width: 75%;
 }
+*/
+
 td {
-  padding-bottom: 50px;
+  padding-bottom: 10px;
+  padding-right: 100px;
 }
 .label {
-  /* font-family: "Quicksand"; */
+  /* font-family: "Quicksand"; 
   text-align: left;
-  line-height: 62px;
+  line-height: 50px;
+  align-items: center;*/
   margin-bottom: 15px;
-  font-size: 50px;
-  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
+/* removed default arrows inside input boxes */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input {
-  height: 82px;
-  width: 284px;
+  height: 40px;
+  width: 120px;
   border-radius: 15px;
-  font-size: 36px;
+  font-size: 20px;
   box-sizing: border-box;
-  border-radius: 15px;
   text-align: center;
-  left: 1155px;
-  top: 344px;
+  line-height: 0px;
 }
 
 .btn.btn-primary {
-  width: 261px;
-  height: 83px;
-  margin-left: 979px;
+  margin-top: 50px;
+  width: 250px;
+  height: 50px;
   border-radius: 15px;
-  font-size: 48px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 0px;
 }
