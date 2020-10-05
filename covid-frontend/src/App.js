@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import About from './components/About';
 import BasicClassroom from './components/BasicClassroom';
 import CalculateHome from './components/CalculateHome';
+import Locations from './components/Locations';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/basic-classroom" component={BasicClassroom} />
           <Route path="/calculate-home" component={CalculateHome} />
+          <Route path="/calculate-location" component={Locations} />
         </Switch>
       </Router>
     </div>
