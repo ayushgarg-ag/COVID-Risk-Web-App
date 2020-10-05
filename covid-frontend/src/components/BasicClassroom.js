@@ -2,12 +2,18 @@ import React from 'react';
 import './BasicClassroom.css';
 
 function BasicClassroom(){
+
     var numFaculty;
     var numStudents;
     var numSessions;
     var durationSessions;
     var classFloorArea;
     var classHeight;
+    var zipCode;
+    var facultyInfectious;
+    var studentInfectious;
+    var maskEfficiency;
+
     function setNumFaculty(event) {
       numFaculty = event.target.value;
     }
@@ -26,16 +32,32 @@ function BasicClassroom(){
     function setClassHeight(event) {
       classHeight = event.target.value;
     }
-    function next() {
+    function setZipCode(event) {
+      zipCode = event.target.value;
+    }
+    function setStudentInfectious(event) {
+      facultyInfectious = event.target.value;
+    }
+    function setFacultyInfectious(event) {
+      studentInfectious = event.target.value;
+    }
+    function setMaskEfficiency(event) {
+      maskEfficiency = event.target.value;
+    }
+    function calculate() {
       var body = {
         numFaculty,
         numStudents,
         numSessions,
         durationSessions,
         classFloorArea,
-        classHeight
+        classHeight,
+        zipCode,
+        facultyInfectious,
+        studentInfectious,
+        maskEfficiency
       };
-      // TODO: Somehow carry this data to the next page/function and send data to python backend
+      // TODO: Somehow carry this data to the calculate page/function and send data to python backend
       console.log(body)
     }
     return(
@@ -93,14 +115,47 @@ function BasicClassroom(){
                       <input type = "number" className = "class-height" value = {classHeight} onChange = {setClassHeight}/>
                     </td>
                   </tr>
+                  {/* I think prof said that for the basic we should just have 1 step so I combined both pages */}
+                  <tr>
+                    <td>
+                      <p className = "label">Zip Code (optional)</p>
+                    </td>
+                    <td>
+                      <input type = "number" className = "zip-code" value = {zipCode} onChange = {setZipCode}/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p className = "label">% Infectious Faculty in Community</p>
+                    </td>
+                    <td>
+                      <input type = "number" className = "faculty-infectious" value = {facultyInfectious} onChange = {setFacultyInfectious}/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p className = "label">% Infectious Student in Community</p>
+                    </td>
+                    <td>
+                      <input type = "number" className = "student-infectious" value = {studentInfectious} onChange = {setStudentInfectious}/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {/* We can add the slider bar later, this is temp */}
+                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%)</p>
+                    </td>
+                    <td>
+                      <input type = "number" className = "mask-effiency" value = {maskEfficiency} onChange = {setMaskEfficiency}/>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </form>
-            <button className="btn btn-primary" onClick = {next}>Next</button>
+            <button className="btn btn-primary" onClick = {calculate}>Calculate!</button>
         </div>
     )
 }
-
 
 
 export default BasicClassroom;
