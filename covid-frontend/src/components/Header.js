@@ -3,22 +3,28 @@ import { Nav, Navbar} from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Styles = styled.div`
-  .navbar { background-color: #222; }
+  .navbar { background-color: #fff; }
   a, .navbar-nav, .navbar-light .nav-link {
     color: #65B7FF;
-    &:hover { color: white; }
+    &:hover { color: black; }
   }
   .navbar-brand {
     font-size: 1.4em;
     color: #65B7FF;
-    &:hover { color: white; }
+    &:hover { color: black; }
+  }
+  #duke-link {
+    font-size: 1.4em;
+    color: #000;
+    &:hover { color: #65B7FF ; }
   }
 `;
+
 export const Header = () => (
   <Styles>
     <Navbar expand="lg">
       <Navbar.Brand href="/">COVID-19 Exposure Modeler</Navbar.Brand>
-      {/* <Navbar.Brand href="/calculate-home">Duke University</Navbar.Brand> */}
+      <Navbar.Brand href="https://duke.edu/" target="blank" id="duke-link">Duke University</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">

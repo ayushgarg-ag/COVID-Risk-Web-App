@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './CalculateHome.css';
 
 function CalculateHome(){
     return(
@@ -14,6 +14,7 @@ function CalculateHome(){
             <a href="/locations-advanced">
                 <button className="calculate-advanced">ADVANCED</button>
             </a>
+            <p className="button-desc">The <strong>advanced assessment</strong> calculates...</p>
         </nav>
     )
 }
