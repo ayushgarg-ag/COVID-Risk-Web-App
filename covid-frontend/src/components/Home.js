@@ -10,8 +10,6 @@ function Home(){
                 and teachers/professors due to transmission by microscopic airborne particles 
                 in classroom settings.
             </p>
-            {/* 
-            @Donghan I made your buttons links, also for styling for vars w/ 2 words I changed it to word1-word2 instead of _ */}
             <a href="/calculate-home">
                 <button className="btn btn-primary">CALCULATE</button><br/>
             </a>
