@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.css';
 
-function Locations(){
+function LocationsBasic(){
     return(
-        <nav className="calculate-location">
+        <nav className="locations-basic">
             <h2 className="title">EXPOSURE CALCULATION: BASIC</h2>
             <p className="desc">
                 What kind of Location?
@@ -21,4 +21,4 @@ function Locations(){
     )
 }
 
-export default Locations;
+export default LocationsBasic;
