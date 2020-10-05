@@ -57,7 +57,8 @@ function BasicClassroom(){
         studentInfectious,
         maskEfficiency
       };
-      // TODO: Somehow carry this data to the calculate page/function and send data to python backend
+
+      // TODO: Somehow carry this data to the next page/function and send data to python backend
       console.log(body)
     }
     return(

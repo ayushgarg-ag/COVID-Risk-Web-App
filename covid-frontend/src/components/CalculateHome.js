@@ -8,12 +8,11 @@ function CalculateHome(){
             <p className="desc">
                 What kind of assessment?
             </p>
-            <a href="/basic-classroom">
-                <button className="calculate-basic-button">BASIC</button><br/>
+            <a href="/locations-basic">
+                <button className="calculate-basic">BASIC</button><br/>
             </a>
-            <p className="button-desc">The <strong>basic assessment</strong> calculates...</p>
-            <a href="/calculate-home">
-                <button className="calculate-advanced-button">ADVANCED</button>
+            <a href="/locations-advanced">
+                <button className="calculate-advanced">ADVANCED</button>
             </a>
             <p className="button-desc">The <strong>advanced assessment</strong> calculates...</p>
         </nav>

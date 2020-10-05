@@ -6,6 +6,8 @@ import { Header } from './components/Header';
 import About from './components/About';
 import BasicClassroom from './components/BasicClassroom';
 import CalculateHome from './components/CalculateHome';
+import LocationsBasic from './components/LocationsBasic';
+import LocationsAdvanced from './components/LocationsAdvanced';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/basic-classroom" component={BasicClassroom} />
           <Route path="/calculate-home" component={CalculateHome} />
+          <Route path="/locations-basic" component={LocationsBasic} />
+          <Route path="/locations-advanced" component={LocationsAdvanced} />
         </Switch>
       </Router>
     </div>
