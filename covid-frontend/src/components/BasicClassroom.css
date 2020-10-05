@@ -38,3 +38,7 @@ input {
   border-radius: 15px;
   font-size: 48px;
 }
+
+body {
+  background-color: lightblue;
+}
