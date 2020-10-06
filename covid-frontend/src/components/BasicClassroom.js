@@ -15,34 +15,34 @@ function BasicClassroom(){
     var maskEfficiency;
 
     function setNumFaculty(event) {
-      numFaculty = event.target.value;
+      numFaculty = parseInt(event.target.value);
     }
     function setNumStudents(event) {
-      numStudents = event.target.value;
+      numStudents = parseInt(event.target.value);
     }
     function setNumSessions(event) {
-      numSessions = event.target.value;
+      numSessions = parseInt(event.target.value);
     }
     function setDurationSessions(event) {
-      durationSessions = event.target.value;
+      durationSessions = parseInt(event.target.value);
     }
     function setClassFloorArea(event) {
-      classFloorArea = event.target.value;
+      classFloorArea = parseFloat(event.target.value);
     }
     function setClassHeight(event) {
-      classHeight = event.target.value;
+      classHeight = parseFloat(event.target.value);
     }
     function setZipCode(event) {
       zipCode = event.target.value;
     }
     function setStudentInfectious(event) {
-      facultyInfectious = event.target.value;
+      facultyInfectious = parseFloat(event.target.value);
     }
     function setFacultyInfectious(event) {
-      studentInfectious = event.target.value;
+      studentInfectious = parseFloat(event.target.value);
     }
     function setMaskEfficiency(event) {
-      maskEfficiency = event.target.value;
+      maskEfficiency = parseFloat(event.target.value);
     }
   async function calculate() {
     var body = {
