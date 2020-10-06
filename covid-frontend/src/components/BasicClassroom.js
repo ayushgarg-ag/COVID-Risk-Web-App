@@ -44,22 +44,32 @@ function BasicClassroom(){
     function setMaskEfficiency(event) {
       maskEfficiency = parseFloat(event.target.value);
     }
-    function calculate() {
-      var body = {
-        numFaculty,
-        numStudents,
-        numSessions,
-        durationSessions,
-        classFloorArea,
-        classHeight,
-        zipCode,
-        facultyInfectious,
-        studentInfectious,
-        maskEfficiency
-      };
+  async function calculate() {
+    var body = {
+      'numFaculty': numFaculty,
+      'numStudents': numStudents,
+      'numSessions': numSessions,
+      'durationSessions': durationSessions,
+      'classFloorArea': classFloorArea,
+      'classHeight': classHeight,
+      'zipCode': zipCode,
+      'facultyInfectious': facultyInfectious,
+      'studentInfectious': studentInfectious,
+      'maskEfficiency': maskEfficiency
+    };
 
-      // TODO: Somehow carry this data to the next page/function and send data to python backend
-      console.log(body)
+    // // TODO: Somehow carry this data to the next page/function and send data to python backend
+    // console.log(body);
+
+    const response = await fetch('/formdata', {
+      body: JSON.stringify(body), // body data type must match "Content-Type" header
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const result = await response.json();
+    console.log(result);
     }
     return(
         <div className="basic-classroom">
