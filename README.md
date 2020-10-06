@@ -7,11 +7,11 @@ The risk calculations here are only for disease transmission by the airborne aer
 ## The Team
 This probabilistic Monte Carlo framework was developed by <b>Prasad Kasibhatla</b>, as an offshoot of the COVID-19 risk estimator developed by Jose Jimenez.
 
-<b>FRONT END</b>
+### FRONT END
 Donghan Park, Helen Xiao, Kevin Yin, Jennifer Schultz, Ayush Garg
 
-<b>BACK END</b>
+### BACK END
 Akash Mullick, Ameya Rao
 
-<b>MOBILE DEVELOPMENT</b>
+### MOBILE DEVELOPMENT
 Jerry Hou, Isabel Garfinkel
