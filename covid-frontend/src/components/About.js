@@ -6,7 +6,7 @@ function About(){
         <nav className="about">
             <div>
                 <h1 className="title">ABOUT THE MODEL</h1>
-                <p className="about_desc">
+                <p className="about-desc">
                     This is a tool to help understand COVID-19 transmission risk to students and teachers/professors 
                     due to transmission by microscopic airborne particles (i.e. aerosols) in classroom settings. 
                     This is not an infectious disease dynamics model, but rather a model that predicts airborne virion 
@@ -27,16 +27,15 @@ function About(){
                     masks) on COVID-19 transmission by aerosols in classrooms.
                 </p>
             </div>
-            <div>
-                <h3 className="team_title">THE TEAM</h3>
-                <p className="team_desc">
+            <div className="team-segment">
+                <h3 className="team-title">THE TEAM</h3>
+                <p className="team-desc">
                     This probabilistic Monte Carlo framework was developed by <strong>Prasad Kasibhatla</strong>, as 
                     an offshoot of the COVID-19 risk estimator developed by Jose Jimenez.
-                    <br/>
-                    <p className="team_subtitle"><strong>FRONT END</strong><br/>Donghan Park, Helen Xiao, Kevin Yin, Jennifer Schultz, Ayush Garg</p>
-                    <p className="team_subtitle"><strong>BACK END</strong><br/>Akash Mullick, Ameya Rao</p>
-                    <p className="team_subtitle"><strong>MOBILE DEVELOPMENT</strong><br/>Jerry Hou, Isabel Garfinkel</p>
                 </p>
+                <p className="team-subtitle"><strong>FRONT END</strong><br/>Donghan Park, Helen Xiao, Kevin Yin, Jennifer Schultz, Ayush Garg</p>
+                <p className="team-subtitle"><strong>BACK END</strong><br/>Akash Mullick, Ameya Rao</p>
+                <p className="team-subtitle"><strong>MOBILE DEVELOPMENT</strong><br/>Jerry Hou, Isabel Garfinkel</p>
             </div>
         </nav>
     )
