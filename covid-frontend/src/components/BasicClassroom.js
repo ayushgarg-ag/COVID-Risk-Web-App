@@ -36,13 +36,13 @@ function BasicClassroom(){
       zipCode = event.target.value;
     }
     function setStudentInfectious(event) {
-      facultyInfectious = event.target.value;
+      facultyInfectious = parseFloat(event.target.value);
     }
     function setFacultyInfectious(event) {
-      studentInfectious = event.target.value;
+      studentInfectious = parseFloat(event.target.value);
     }
     function setMaskEfficiency(event) {
-      maskEfficiency = event.target.value;
+      maskEfficiency = parseFloat(event.target.value);
     }
     function calculate() {
       var body = {
