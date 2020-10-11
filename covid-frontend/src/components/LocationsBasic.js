@@ -3,7 +3,7 @@ import '../App.css';
 
 function LocationsBasic(){
     return(
-        <nav className="locations-basic">
+        <nav className="centered-layout">
             <h2 className="title">EXPOSURE CALCULATION: BASIC</h2>
             <p className="desc">
                 What kind of Location?

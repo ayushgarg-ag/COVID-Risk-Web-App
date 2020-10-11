@@ -72,7 +72,7 @@ function BasicClassroom(){
     console.log(result);
     }
     return(
-        <div className="basic-classroom">
+        <div className="left-layout">
             <h2 className="title">STEP 1: CLASSROOM INFORMATION</h2>
             <p className="desc">Please input the appropriate values in the input boxes below.</p>
             <form>

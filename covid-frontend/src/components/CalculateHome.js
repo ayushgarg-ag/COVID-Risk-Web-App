@@ -3,7 +3,7 @@ import './CalculateHome.css';
 
 function CalculateHome(){
     return(
-        <nav className="calculate-home">
+        <nav className="centered-layout">
             <h2 className="title">EXPOSURE CALCULATION</h2>
             <p className="desc">
                 What kind of assessment?
@@ -11,6 +11,7 @@ function CalculateHome(){
             <a href="/locations-basic">
                 <button className="btn btn-primary">BASIC</button><br/>
             </a>
+            <p className="button-desc">The <strong>advanced assessment</strong> calculates...</p>
             <a href="/locations-advanced">
                 <button className="btn btn-primary">ADVANCED</button>
             </a>

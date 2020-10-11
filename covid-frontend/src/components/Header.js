@@ -11,6 +11,7 @@ const Styles = styled.div`
   .navbar-brand {
     font-size: 1.4em;
     color: #012169;
+    font-family: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', Times, serif;
     &:hover { color: black; }
   }
   #duke-link {
