@@ -3,7 +3,7 @@ import './About.css';
 
 function About(){
     return(
-        <nav className="about">
+        <nav className="left-layout">
             <div>
                 <h1 className="title">ABOUT THE MODEL</h1>
                 <p className="about-desc">
