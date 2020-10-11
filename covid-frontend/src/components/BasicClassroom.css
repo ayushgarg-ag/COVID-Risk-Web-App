@@ -56,16 +56,3 @@ input {
   line-height: 0px;
 }
 
-.btn.btn-primary {
-  margin-top: 50px;
-  width: 250px;
-  height: 50px;
-  border-radius: 15px;
-  font-size: 20px;
-  text-align: center;
-  line-height: 0px;
-}
-
-body {
-  background-color: #cee8f0;
-}

@@ -163,7 +163,9 @@ function BasicClassroom(){
                 </tbody>
               </table>
             </form>
-            <button className="btn btn-primary" onClick = {calculate}>Calculate!</button>
+            <a href="/results">
+                <button className="btn btn-primary" onClick = {calculate}>CALCULATE</button>
+            </a>
         </div>
     )
 }

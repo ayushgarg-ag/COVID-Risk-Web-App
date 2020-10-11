@@ -8,13 +8,14 @@ import BasicClassroom from './components/BasicClassroom';
 import CalculateHome from './components/CalculateHome';
 import LocationsBasic from './components/LocationsBasic';
 import LocationsAdvanced from './components/LocationsAdvanced';
+import Results from './components/Results';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header /> {/*@Helen im assuming header's the nav bar?*/}
+        <Header />
         <Switch>
           {/*@Helen just wrote temp paths for now; feel free to change em*/}
           <Route path="/" exact component={Home} />
@@ -23,6 +24,7 @@ function App() {
           <Route path="/calculate-home" component={CalculateHome} />
           <Route path="/locations-basic" component={LocationsBasic} />
           <Route path="/locations-advanced" component={LocationsAdvanced} />
+          <Route path="/results" component={Results} />
         </Switch>
       </Router>
     </div>
