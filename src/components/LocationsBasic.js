@@ -9,10 +9,10 @@ function LocationsBasic(){
                 What kind of Location?
             </p>
             <a href="/basic-classroom">
-                <button className="btn btn-primary">CLASSROOM</button><br/>
+                <button className="btn btn-primary">CLASSROOM</button>
             </a>
             <a href="/basic-classroom">
-                <button className="btn btn-primary">DINING AREA</button><br/>
+                <button className="btn btn-primary">DINING AREA</button>
             </a>
             <a href="/basic-classroom">
                 <button className="btn btn-primary">COMMON ROOM</button>
