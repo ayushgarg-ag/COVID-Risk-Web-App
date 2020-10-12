@@ -69,7 +69,7 @@ function BasicClassroom(){
     // // TODO: Somehow carry this data to the next page/function and send data to python backend
     // console.log(body);
 
-    const response = await fetch('/formdata', {
+    const response = await fetch('/api/classroombasic', {
       body: JSON.stringify(body), // body data type must match "Content-Type" header
       method: 'POST',
       headers: {
