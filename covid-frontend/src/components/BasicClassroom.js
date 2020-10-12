@@ -1,9 +1,17 @@
 import React from 'react';
 import './BasicClassroom.css';
+import { BsFillQuestionCircleFill } from "react-icons/bs";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
+function renderTooltip(props) {
+  return <Tooltip {...props}>Typical value for the general population, with a variety of types of masks and also variation on how well they are worn
+  </Tooltip>;
+}
 
 function BasicClassroom(){
 
-    var numFaculty;
+    var numFaculty = 1;
     var numStudents;
     var numSessions;
     var durationSessions;
@@ -12,7 +20,7 @@ function BasicClassroom(){
     var zipCode;
     var facultyInfectious;
     var studentInfectious;
-    var maskEfficiency;
+    var maskEfficiency = 30;
 
     function setNumFaculty(event) {
       numFaculty = parseInt(event.target.value);
@@ -73,7 +81,7 @@ function BasicClassroom(){
     }
     return(
         <div className="left-layout">
-            <h2 className="title">STEP 1: CLASSROOM INFORMATION</h2>
+            <h2 className="title">CLASSROOM CALCULATION</h2>
             <p className="desc">Please input the appropriate values in the input boxes below.</p>
             <form>
               <table className="inputs">
@@ -154,7 +162,11 @@ function BasicClassroom(){
                   <tr>
                     <td>
                       {/* We can add the slider bar later, this is temp */}
-                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%)</p>
+                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%) <OverlayTrigger 
+                          placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
+                          <BsFillQuestionCircleFill variant="success" />
+                        </OverlayTrigger>
+                      </p>
                     </td>
                     <td>
                       <input type = "number" className = "mask-effiency" value = {maskEfficiency} onChange = {setMaskEfficiency}/>

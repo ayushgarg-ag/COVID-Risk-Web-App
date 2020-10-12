@@ -3,7 +3,7 @@ import './Results.css';
 
 function Results(){
     return(
-        <nav className="results">
+        <nav className="centered-layout">
             <h1 className="title">RESULTS</h1>
             <p className="desc">
             </p>
