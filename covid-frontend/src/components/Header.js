@@ -5,18 +5,19 @@ import styled from 'styled-components';
 const Styles = styled.div`
   .navbar { background-color: #fff; }
   a, .navbar-nav, .navbar-light .nav-link {
-    color: #65B7FF;
+    color: #012169;
     &:hover { color: black; }
   }
   .navbar-brand {
     font-size: 1.4em;
-    color: #65B7FF;
+    color: #012169;
+    font-family: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', Times, serif;
     &:hover { color: black; }
   }
   #duke-link {
     font-size: 1.4em;
     color: #000;
-    &:hover { color: #65B7FF ; }
+    &:hover { color: #012169 ; }
   }
 `;
 

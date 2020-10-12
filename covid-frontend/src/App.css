@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #012169;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +35,36 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn.btn-primary {
+  margin-top: 50px;
+  width: 250px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 0px;
+  background-color: #012169;
+}
+
+.btn.btn-basic{
+  width: 150px;
+  font-size: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+  color: black;
+  background-color: silver;
+}
+
+.left-layout{
+  text-align: left;
+  margin: 100px 100px 0px 100px;
+  font-family: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', Times, serif;
+}
+
+.centered-layout{
+  text-align: center;
+  margin: 100px 100px 0px 100px;
+  font-family: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', Times, serif;
 }
