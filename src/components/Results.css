@@ -1,0 +1,25 @@
+.instructor-results{
+    display: inline-block;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.student-results{
+    display: inline-block;
+    margin-right: 120px;
+    margin-left: 120px;
+}
+
+.prob-infection{
+    display: inline-block;   
+    margin-right: 20px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.chance{
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: right;
+}
