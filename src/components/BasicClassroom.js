@@ -10,7 +10,6 @@ function renderTooltip(props) {
 }
 
 function BasicClassroom(){
-
     var numFaculty = 1;
     var numStudents;
     var numSessions;
@@ -94,6 +93,17 @@ function BasicClassroom(){
                       <input type = "number" className = "num-faculty" value = {numFaculty} onChange = {setNumFaculty}/>
                     </td>
                   </tr>
+                  <div className = "slidecontainer">
+                  <tr>
+                    <td>
+                      <p className = "label">Slider:</p>
+                    </td>
+                    <td>
+                      <p> Value: <span id="value">50</span></p>
+                      <input type = "range" className = "slider" min = "1" max = "100" value = "50" id = "myRange"/>
+                    </td>
+                  </tr>
+                  </div>
                   <tr>
                     <td className = "label">
                       <p className = "label">Number of Students:</p>
@@ -162,7 +172,7 @@ function BasicClassroom(){
                   <tr>
                     <td>
                       {/* We can add the slider bar later, this is temp */}
-                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%) <OverlayTrigger 
+                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%) <OverlayTrigger
                           placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
                           <BsFillQuestionCircleFill variant="success" />
                         </OverlayTrigger>
