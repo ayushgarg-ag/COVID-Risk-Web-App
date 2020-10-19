@@ -3,91 +3,63 @@ import './Results.css';
 
 function Results(){
 
-    var percentFaculty = 0.0003;
-    var percentStudent = 0.0087;
+    var percentFaculty = 0.68;
+    var percentStudent = 0.83;
 
-    //Stand-in data
-    var probFaculty5 = 0.00002;
-    var probFaculty25 = 0.00031;
-    var probFaculty50 = 0.00034;
-    var probFaculty75 = 0.0098;
-    var probFaculty95 = 0.023;
-    var probStudent5 = 0.00002;
-    var probStudent25 = 0.00045;
-    var probStudent50 = 0.0092;
-    var probStudent75 = 0.0389;
-    var probStudent95 = 0.043;
+    var probFaculty5 = 0.01;
+    var probFaculty25 = 0.06;
+    var probFaculty50 = 0.18;
+    var probFaculty75 = 0.54;
+    var probFaculty95 = 2.81;
+    var probStudent5 = 0.04;
+    var probStudent25 = 0.14;
+    var probStudent50 = 0.34;
+    var probStudent75 = 0.82;
+    var probStudent95 = 3.17;
 
     return(
-        <nav className="centered-layout">
-            <h1 className="title">RESULTS</h1>
-            <p className="desc">
-            </p>
-            <div>
-                <div className="instructor-results">
-                    <h3>For an Instructor:</h3><br/>
-                    <h1>{percentFaculty} %</h1>
-                    <h5>chance of being infected</h5>
+        <nav className="results">
+            <div className="info-container">
+                <div className="infobar">
+                    <h1 className="best-estimate">{percentFaculty}%</h1>
+                    <div className="infobox">
+                        <h1 className="info-title">FACULTY</h1>
+                        <p className="info-p">The chance of a faculty member being infected is <strong className="estimate-text">VERY LOW</strong></p>
+                        <p className="info-p"><strong>HOWEVER,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
+                    </div>
                 </div>
-                <div className="student-results">
-                    <h3>For a Student:</h3><br/>
-                    <h1>{percentStudent} %</h1>
-                    <h5>chance of being infected</h5>
-                </div>
-            </div><br/><br/>
-
-            <div>
-                <div >
-                    <h3>Additional Breakdowns:</h3>
-                </div><br/>
-            </div>
-
-            <div>
-                <div className="instructor-results">
-                    <div className="prob-infection">
-                        <h4>Probability of Infection</h4>
-                        {/* Does anyone know how to type < / I can't find the escape key and it throws and error when I just try to type <. */}
-                        <h3>less than {probFaculty5}</h3>
-                        <h3>less than {probFaculty25}</h3>
-                        <h3>less than {probFaculty50}</h3>
-                        <h3>less than {probFaculty75}</h3>
-                        <h3>less than {probFaculty95}</h3>
-                    </div>
-                    <div className="chance">
-                        <h4>Chance</h4>
-                        <h3>5%</h3>
-                        <h3>25%</h3>
-                        <h3>50%</h3>
-                        <h3>75%</h3>
-                        <h3>95%</h3>
-                    </div>
- 
-                    
-                </div>
-                <div className="student-results">
-                    <div className="prob-infection">
-                        <h4>Probability of Infection</h4>
-                        <h3>less than {probStudent5}</h3>
-                        <h3>less than {probStudent25}</h3>
-                        <h3>less than {probStudent50}</h3>
-                        <h3>less than {probStudent75}</h3>
-                        <h3>less than {probStudent95}</h3>
-                    </div>
-                    <div className="chance">
-                        <h4>Chance</h4>
-                        <h3>5%</h3>
-                        <h3>25%</h3>
-                        <h3>50%</h3>
-                        <h3>75%</h3>
-                        <h3>95%</h3>
-                    </div>
+                <div className="breakdown">
+                    <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
+                    <p>While our best estimate for the infection probability is <strong className="estimate-text">{percentFaculty}%,</strong> please note that this is still an approximation. However...</p>
+                    <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is less than <strong className="orange-text">{probFaculty95}%</strong></p>
+                    <p className="confidence-p"><strong>75%</strong> confident: less than <strong className="orange-text">{probFaculty75}%</strong></p>
+                    <p className="confidence-p"><strong>50%</strong> confident: less than <strong className="orange-text">{probFaculty50}%</strong></p>
+                    <p className="confidence-p"><strong>25%</strong> confident: less than <strong className="orange-text">{probFaculty25}%</strong></p>
+                    <p className="confidence-p"><strong> 5%</strong> confident: less than <strong className="orange-text">{probFaculty5}%</strong></p>
+                    <br></br>
                 </div>
             </div>
 
-
-            <a href="/calculate-home">
-                <button className="btn btn-primary">NEW CALCULATION</button>
-            </a><br/><br/><br/>
+            <div className="info-container">
+                <div className="infobar">
+                    <h1 className="best-estimate">{percentStudent}%</h1>
+                    <div className="infobox">
+                        <h1 className="info-title">STUDENTS</h1>
+                        <p className="info-p">The chance of a student being infected is <strong className="estimate-text">VERY LOW</strong></p>
+                        <p className="info-p"><strong>HOWEVER,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
+                    </div>
+                </div>
+                <div className="breakdown">
+                    <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
+                    <p>While our best estimate for the infection probability is <strong className="estimate-text">{percentStudent}%,</strong> please note that this is still an approximation. However...</p>
+                    <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is less than <strong className="orange-text">{probStudent95}%</strong></p>
+                    <p className="confidence-p"><strong>75%</strong> confident: less than <strong className="orange-text">{probStudent75}%</strong></p>
+                    <p className="confidence-p"><strong>50%</strong> confident: less than <strong className="orange-text">{probStudent50}%</strong></p>
+                    <p className="confidence-p"><strong>25%</strong> confident: less than <strong className="orange-text">{probStudent25}%</strong></p>
+                    <p className="confidence-p"><strong> 5%</strong> confident: less than <strong className="orange-text">{probStudent5}%</strong></p>
+                    <br></br>
+                </div>
+            </div>
         </nav>
     )
 }
