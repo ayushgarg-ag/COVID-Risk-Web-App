@@ -1,25 +1,83 @@
-.instructor-results{
-    display: inline-block;
-    margin-right: 40px;
-    margin-left: 40px;
+.info-container{
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    margin: 50px 100px;
 }
 
-.student-results{
-    display: inline-block;
-    margin-right: 120px;
-    margin-left: 120px;
+.infobar{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: transparent;
 }
 
-.prob-infection{
-    display: inline-block;   
-    margin-right: 20px;
-    margin-left: 10px;
+.infobox{
+    background: #F0F0F0;
+    position: relative;
+    height: 170px;
+    width: 80%;
+    margin: 0px 0px 0px -70px;
+    z-index: 1;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgb(200, 200, 200);
+}
+
+.best-estimate{
+    z-index: 2;
+    background-color: #012169;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    line-height: 200px;
+    color: white;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.info-title{
     text-align: left;
+    padding: 25px 50px 0px 100px;
 }
 
-.chance{
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
+.info-p{
+    text-align: left;
+    padding: 5px 50px 0px 100px;
+    margin: 0px;
+}
+
+.estimate-text{
+    background-color: transparent;
+    color: #48C31D;
+}
+
+.orange-text{
+    background-color: transparent;
+    color: #FAA251;
+}
+
+.breakdown{
+    box-shadow: 0px 2px 4px rgb(200, 200, 200);
+    background: white;
+    border-radius: 15px;
+    z-index: 0;
+    width: 50%;
+    margin: 0px 45%;
+}
+
+.breakdown-title{
+    text-align: left;
+    font-size: 25px;
+    margin: 0px 0px 20px 25px;
+    padding: 25px 0px 0px 0px;
+}
+
+p{
+    text-align: left;
+    margin: 5px 25px 15px 25px;
+}
+
+.confidence-p{
     text-align: right;
+    margin: 0px 25px 0px 25px;
 }
