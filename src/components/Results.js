@@ -25,13 +25,13 @@ function Results(){
                     <div className="infobox">
                         <h1 className="info-title">FACULTY</h1>
                         <p className="info-p">The chance of a faculty member being infected is <strong className="estimate-text">VERY LOW</strong></p>
-                        <p className="info-p"><strong>HOWEVER,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
+                        <p className="info-p"><strong>However,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
                     </div>
                 </div>
                 <div className="breakdown">
                     <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
                     <p>While our best estimate for the infection probability is <strong className="estimate-text">{percentFaculty}%,</strong> please note that this is still an approximation. However...</p>
-                    <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is less than <strong className="orange-text">{probFaculty95}%</strong></p>
+                    <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is at least less than <strong className="orange-text">{probFaculty95}%</strong></p>
                     <p className="confidence-p"><strong>75%</strong> confident: less than <strong className="orange-text">{probFaculty75}%</strong></p>
                     <p className="confidence-p"><strong>50%</strong> confident: less than <strong className="orange-text">{probFaculty50}%</strong></p>
                     <p className="confidence-p"><strong>25%</strong> confident: less than <strong className="orange-text">{probFaculty25}%</strong></p>
@@ -46,13 +46,13 @@ function Results(){
                     <div className="infobox">
                         <h1 className="info-title">STUDENTS</h1>
                         <p className="info-p">The chance of a student being infected is <strong className="estimate-text">VERY LOW</strong></p>
-                        <p className="info-p"><strong>HOWEVER,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
+                        <p className="info-p"><strong>However,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
                     </div>
                 </div>
                 <div className="breakdown">
                     <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
                     <p>While our best estimate for the infection probability is <strong className="estimate-text">{percentStudent}%,</strong> please note that this is still an approximation. However...</p>
-                    <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is less than <strong className="orange-text">{probStudent95}%</strong></p>
+                    <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is at least less than <strong className="orange-text">{probStudent95}%</strong></p>
                     <p className="confidence-p"><strong>75%</strong> confident: less than <strong className="orange-text">{probStudent75}%</strong></p>
                     <p className="confidence-p"><strong>50%</strong> confident: less than <strong className="orange-text">{probStudent50}%</strong></p>
                     <p className="confidence-p"><strong>25%</strong> confident: less than <strong className="orange-text">{probStudent25}%</strong></p>
