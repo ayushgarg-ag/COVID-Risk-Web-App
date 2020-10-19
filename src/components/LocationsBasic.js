@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import './Locations.css';
 
 function LocationsBasic(){
     return(
@@ -9,13 +10,13 @@ function LocationsBasic(){
                 What kind of Location?
             </p>
             <a href="/basic-classroom">
-                <button className="btn btn-primary">CLASSROOM</button>
+                <button className="btn btn-secondary" id="classroom-button"><b>CLASSROOM</b></button>
             </a>
             <a href="/basic-classroom">
-                <button className="btn btn-primary">DINING AREA</button>
+                <button className="btn btn-secondary" id="dining-button"><b>DINING AREA</b></button>
             </a>
             <a href="/basic-classroom">
-                <button className="btn btn-primary">COMMON ROOM</button>
+                <button className="btn btn-secondary" id="commonroom-button"><b>COMMON ROOM</b></button>
             </a>
         </nav>
     )
