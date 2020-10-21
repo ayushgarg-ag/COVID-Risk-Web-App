@@ -1,21 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Results.css';
 
 function Results(){
 
-    var percentFaculty = 0.68;
-    var percentStudent = 0.83;
+    const [percentFaculty, setPercentFaculty] = useState(0.68);
+    const [percentStudent, setPercentStudent] = useState(0.83);
+    const [probFaculty5, setProbFaculty5] = useState(0.01);
+    const [probFaculty25, setProbFaculty25] = useState(0.06);
+    const [probFaculty50, setProbFaculty50] = useState(0.18);
+    const [probFaculty75, setProbFaculty75] = useState(0.54);
+    const [probFaculty95, setProbFaculty95] = useState(2.81);
+    const [probStudent5, setProbStudent5] = useState(0.04);
+    const [probStudent25, setProbStudent25] = useState(0.14);
+    const [probStudent50, setProbStudent50] = useState(0.34);
+    const [probStudent75, setProbStudent75] = useState(0.82);
+    const [probStudent95, setProbStudent95] = useState(3.17);
 
-    var probFaculty5 = 0.01;
-    var probFaculty25 = 0.06;
-    var probFaculty50 = 0.18;
-    var probFaculty75 = 0.54;
-    var probFaculty95 = 2.81;
-    var probStudent5 = 0.04;
-    var probStudent25 = 0.14;
-    var probStudent50 = 0.34;
-    var probStudent75 = 0.82;
-    var probStudent95 = 3.17;
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/classroombasic', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+            const result = await response.json();
+
+            setPercentFaculty(result.percentFaculty);
+            setPercentStudent(result.percentStudent);
+            setProbFaculty5(result.probFaculty5);
+            setProbFaculty25(result.probFaculty25);
+            setProbFaculty50(result.probFaculty50);
+            setProbFaculty75(result.probFaculty75);
+            setProbFaculty95(result.probFaculty95);
+            setProbStudent5(result.probStudent5);
+            setProbStudent25(result.probStudent25);
+            setProbStudent50(result.probStudent50);
+            setProbStudent75(result.probStudent75);
+            setProbStudent95(result.probStudent95);
+        }
+        fetchData();
+    }, []);
+
 
     return(
         <nav className="results">
