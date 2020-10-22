@@ -12,7 +12,7 @@ function renderAdvancedTooltip(props) {
     return <Tooltip {...props}>The advanced assessment is best for...</Tooltip>;
 }
 
-export default class LocationsBasic extends React.Component{
+export default class CalculateHome extends React.Component{
 
     constructor(props) {
         super(props);
