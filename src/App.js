@@ -6,8 +6,8 @@ import { Header } from './components/Header';
 import About from './components/About';
 import BasicClassroom from './components/BasicClassroom';
 import CalculateHome from './components/CalculateHome';
-import LocationsBasic from './components/LocationsBasic';
-import LocationsAdvanced from './components/LocationsAdvanced';
+// import LocationsBasic from './components/LocationsBasic';
+// import LocationsAdvanced from './components/LocationsAdvanced';
 import Results from './components/Results';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -22,8 +22,8 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/basic-classroom" component={BasicClassroom} />
           <Route path="/calculate-home" component={CalculateHome} />
-          <Route path="/locations-basic" component={LocationsBasic} />
-          <Route path="/locations-advanced" component={LocationsAdvanced} />
+          {/* <Route path="/locations-basic" component={LocationsBasic} />
+          <Route path="/locations-advanced" component={LocationsAdvanced} /> */}
           <Route path="/results" component={Results} />
         </Switch>
       </Router>
