@@ -24,6 +24,16 @@ function BasicClassroom(){
     function setNumFaculty(event) {
       numFaculty = parseInt(event.target.value);
     }
+
+    function slider(event) {
+      var slidecontainer = document.getElementById("myRange");
+      var output = document.getElementById("demo");
+      output.innerHTML = slidecontainer.value;
+      slidecontainer.onInput = function() {
+        output.innerHTML = this.value;
+      }
+    }
+
     function setNumStudents(event) {
       numStudents = parseInt(event.target.value);
     }
@@ -99,8 +109,8 @@ function BasicClassroom(){
                       <p className = "label">Slider:</p>
                     </td>
                     <td>
-                      <p> Value: <span id="value">50</span></p>
-                      <input type = "range" className = "slider" min = "1" max = "100" value = "50" id = "myRange"/>
+                      <input type = "range" className = "slider" min = "0" max = "100" value = "50" id = "myRange" onInput = {slider}/>
+                      <p> Value: <span id="demo">50</span></p>
                     </td>
                   </tr>
                   </div>
