@@ -1,23 +1,11 @@
-.title{
-    font-size: 60px;
+#classroom-button{
+    background-image: url(/classroom.png);
 }
 
-.desc{
-    font-size: 20px;
-    margin: 30px 0px;
-}
+#dining-button{
+    background-image: url(/dining.png);
+} 
 
-.calculate-basic-button{
-    font-size: 20px;
-    margin-top: 50px;
-}
-
-.calculate-advanced-button{
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-.button-desc{
-    font-size: 20px;
-    margin-top: 20px;
-}
+#commonroom-button{
+    background-image: url(/commonroom.png);
+}  
