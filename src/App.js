@@ -5,6 +5,8 @@ import Home from './components/Home';
 import { Header } from './components/Header';
 import About from './components/About';
 import BasicClassroom from './components/BasicClassroom';
+import BasicClassroomLocation from './components/BasicClassroomLocation';
+import BasicClassroomInfo from './components/BasicClassroomInfo';
 import CalculateHome from './components/CalculateHome';
 import LocationsBasic from './components/LocationsBasic';
 import LocationsAdvanced from './components/LocationsAdvanced';
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/basic-classroom" component={BasicClassroom} />
+          <Route path="/basic-classroom-location" component={BasicClassroomInfo} />
+          <Route path="/basic-classroom-info" component={BasicClassroomLocation} />
           <Route path="/calculate-home" component={CalculateHome} />
           <Route path="/locations-basic" component={LocationsBasic} />
           <Route path="/locations-advanced" component={LocationsAdvanced} />

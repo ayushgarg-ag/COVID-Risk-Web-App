@@ -162,7 +162,7 @@ function BasicClassroom(){
                   <tr>
                     <td>
                       {/* We can add the slider bar later, this is temp */}
-                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%) <OverlayTrigger 
+                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%) <OverlayTrigger
                           placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
                           <BsFillQuestionCircleFill variant="success" />
                         </OverlayTrigger>
