@@ -109,8 +109,8 @@ function BasicClassroom(){
                       <p className = "label">Slider:</p>
                     </td>
                     <td>
-                      <input type = "range" className = "slider" min = "0" max = "100" value = "50" id = "myRange" onInput = {slider}/>
-                      <p> Value: <span id="demo">50</span></p>
+                      <input type = "range" className = "slider" min = "0" max = "100" id = "myRange" onInput = {slider}/>
+                      <p> Value: <span id="demo"></span></p>
                     </td>
                   </tr>
                   </div>
