@@ -3,12 +3,15 @@ from calculation import calculate
 from flask import Flask, request, render_template, jsonify
 app = Flask(__name__)
 
+studentNum = None
+facultyNum = None
 studentResults = None
 facultyResults = None
 
-
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
+    global studentNum
+    global facultyNum
     global studentResults
     global facultyResults
 
@@ -24,17 +27,17 @@ def formdata():
         zipCode = content['zipCode']
         facultyInfectious = content['facultyInfectious']
         studentInfectious = content['studentInfectious']
-        studentResults, facultyResults = calculate(
+        studentNum, facultyNum, studentResults, facultyResults = calculate(
             numFaculty, numStudents, numSessions, durationSessions)
-        while studentResults is None or facultyResults is None:
+        while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
             pass
         return
     else:
-        while studentResults is None or facultyResults is None:
+        while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
             pass
         results = {
-            'percentFaculty': 0.68,
-            'percentStudent': 0.83,
+            'percentFaculty': facultyNum,
+            'percentStudent': studentNum,
             'probFaculty5': facultyResults['fac_quants_05'],
             'probFaculty25': facultyResults['fac_quants_25'],
             'probFaculty50': facultyResults['fac_quants_50'],

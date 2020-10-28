@@ -9,11 +9,15 @@ e = math.e
 
 def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
-    volume = 9000
-    num_faculty = numFaculty
-    num_students = numStudents
-    num_class_periods = numSessions
-    duration = durationSessions
+    volume = 9000*0.305**3
+    # num_faculty = numFaculty
+    # num_students = numStudents
+    # num_class_periods = numSessions
+    # duration = durationSessions
+    num_faculty = 1
+    num_students = 10
+    duration = 75
+    num_class_periods = 26
 
     breathing_rate_faculty = [0.027, 0.029, 1]
     breathing_rate_student = [0.012, 0.012, 1]
@@ -35,6 +39,7 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     ############################
 
+
     def randomizeAll():
         randomize(breathing_rate_faculty)
         randomize(breathing_rate_student)
@@ -52,8 +57,10 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
         randomizeFromNormal(quanta_emission_rate_faculty)
         randomizeFromNormal(quanta_emission_rate_student)
 
+
     def randomize(bounds):
         bounds[2] = np.random.random_sample() * (bounds[1]-bounds[0])
+
 
     def randomizeFromNormal(normdist):
         normdist[2] = 10**np.random.normal(normdist[0], normdist[1])
@@ -67,6 +74,7 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Average quanta concentration during class period if 1 faculty member is infected:
 
+
     def calc_Cf(Q_f, m_out, k, V, T):
         cf = ((Q_f*(1-m_out))/(k*V))*(1-(1/(k*T))*(1-e**(-k*T)))
 
@@ -74,11 +82,13 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Average quanta concentration during class period if 1 student is infected:
 
+
     def calc_Cs(Q_s, m_out, k, V, T):
         cs = ((Q_s*(1-m_out))/(k*V))*(1-(1/(k*T))*(1-e**(-k*T)))
         return cs
 
     # Quanta inhaled by student if 1 faculty infected:
+
 
     def calc_Nfs(C_f, I_s, m_in, T):
         Nfs = C_f*I_s*(1-m_in)*T
@@ -86,11 +96,13 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Quanta inhaled by faculty if 1 student infected:
 
+
     def calc_Nsf(C_s, I_f, m_in, T):
         Nsf = C_s*I_f*(1-m_in)*T
         return Nsf
 
     # Quanta inhaled by student if 1 student infected
+
 
     def calc_Nss(C_s, I_s, m_in, T):
         Nss = C_s*I_s*(1-m_in)*T
@@ -98,11 +110,13 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Probability of 1 faculty infecting student:
 
+
     def calc_pfs(f_f, N_fs):
         pfs = f_f*(1-np.exp(-N_fs))
         return pfs
 
     # Probability of 1 student infecting faculty:
+
 
     def calc_psf(f_s, N_sf):
         psf = f_s*(1-np.power(e, -N_sf))
@@ -110,11 +124,13 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Probability of 1 student infecting student:
 
+
     def calc_pss(f_s, N_ss):
         pss = f_s*(1-np.power(e, -N_ss))
         return pss
 
     # Probability of faculty infection in one class session:
+
 
     def calc_p1f(p_sf, N_s):
         p1f = 1-(1-p_sf)**(N_s)
@@ -122,11 +138,13 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Probability of student infection in one class session:
 
+
     def calc_p1s(p_ss, n_s, p_fs, n_f):
         p1s = 1-((1-p_ss)**(n_s-1)*(1-p_fs)**n_f)
         return p1s
 
     # Probability of faculty infection for semester:
+
 
     def calc_pf(p1_f, n_c):
         pf = 1-(1-p1_f)**n_c
@@ -134,21 +152,23 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
 
     # Probability of student infection for semester:
 
+
     def calc_ps(p1_s, n_c):
         ps = 1-(1-p1_s)**n_c
         return ps
 
-    trials = 1
+
+    trials = 10000
     fac_runs = [0] * trials
     student_runs = [0] * trials
     for x in range(trials):
         randomizeAll()
 
         cf = calc_Cf(quanta_emission_rate_faculty[2], exhalation_mask_efficiency[2], (ventilation_w_outside_air[2] +
-                                                                                      decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
+                                                                                    decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
         #print("cf: ", cf)
         cs = calc_Cs(quanta_emission_rate_student[2], exhalation_mask_efficiency[2], (ventilation_w_outside_air[2] +
-                                                                                      decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
+                                                                                    decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
         #print("cs: ", cs)
         Nfs = calc_Nfs(
             cf, inhalation_rate_student[2], inhalation_mask_efficiency[2], duration)
@@ -203,5 +223,5 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
                       'fac_quants_50': fac_quants_50,
                       'fac_quants_75': fac_quants_75,
                       'fac_quants_95': fac_quants_95}
-
-    return (studentResults, facultyResults)
+    print(studentResults)
+    return (student_mean, fac_mean, studentResults, facultyResults)
