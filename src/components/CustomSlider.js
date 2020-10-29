@@ -8,7 +8,7 @@ class CustomSlider extends React.Component{
         this.state = {
             lvalue: parseInt(this.props.min), //this value holds the MIN input value
             rvalue: parseInt(this.props.max), //this value holds the MAX input value
-            _step: parseInt(this.props.step_count)
+            _step: parseFloat(this.props.step_count)
         }
 
         this.leftInputUpdated = this.leftInputUpdated.bind(this);
