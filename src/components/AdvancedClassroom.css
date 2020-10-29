@@ -1,0 +1,85 @@
+.title {
+  font-size: 60px;
+}
+
+.desc{
+  font-size: 20px;
+  margin: 30px 0px;
+}
+
+/*
+.inputs {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+*/
+
+td {
+  padding-bottom: 10px;
+  padding-right: 100px;
+}
+.label {
+  /* font-family: "Quicksand";
+  text-align: left;
+  line-height: 50px;
+  align-items: center;*/
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* removed default arrows inside input boxes */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  height: 40px;
+  width: 120px;
+  border-radius: 15px;
+  font-size: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 0px;
+  position: relative;
+  right: 70px;
+}
+
+.slidecontainer {
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 300%; /* Full-width */
+  height: 13px; /* Specified height */
+  border-radius: 5px;
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  position: relative;
+  right: 70px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00009C;
+  cursor: pointer;
+}
+
+.slider:hover {
+    opacity: 1;
+}
