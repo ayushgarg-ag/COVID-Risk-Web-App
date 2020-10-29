@@ -21,7 +21,7 @@ import './CustomSlider.css';
 class CustomSlider extends React.Component{
     constructor(props){
         super(props);
-
+    
         this.state = {
             lvalue: parseInt(this.props.min), //this value holds the MIN input value (to be used for back-end)
             rvalue: parseInt(this.props.max), //this value holds the MAX input value
