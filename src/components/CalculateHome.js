@@ -58,7 +58,7 @@ export default class CalculateHome extends React.Component{
         if (isLocationSelected) {
             divHeader = 
             <nav className="centered-layout">
-                <h2 className="title">EXPOSURE CALCULATION: BASIC</h2>
+                <h2 className="title">EXPOSURE CALCULATION</h2>
                 <p className="desc">
                     What kind of Assessment?
                 </p>
@@ -71,7 +71,7 @@ export default class CalculateHome extends React.Component{
                     </a>
                     <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderBasicTooltip}>
                     <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
+                    </OverlayTrigger>
                     <a href="/advanced-classroom">
                         <button className="btn btn-primary">ADVANCED</button>
                     </a>
@@ -88,7 +88,7 @@ export default class CalculateHome extends React.Component{
                     </a>
                     <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderBasicTooltip}>
                     <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
+                    </OverlayTrigger>
                     <a href="/advanced-dining">
                         <button className="btn btn-primary">ADVANCED</button>
                     </a>
@@ -105,7 +105,7 @@ export default class CalculateHome extends React.Component{
                     </a>
                     <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderBasicTooltip}>
                     <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
+                    </OverlayTrigger>
                     <a href="/advanced-commonroom">
                         <button className="btn btn-primary">ADVANCED</button>
                     </a>
@@ -119,7 +119,7 @@ export default class CalculateHome extends React.Component{
         else {
             divHeader = 
             <nav className="centered-layout">
-                <h2 className="title">EXPOSURE CALCULATION: BASIC</h2>
+                <h2 className="title">EXPOSURE CALCULATION</h2>
                 <p className="desc">
                     What kind of Location?
                 </p>
