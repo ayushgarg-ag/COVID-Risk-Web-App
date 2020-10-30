@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './BasicClassroom.css';
+import './Classroom.css';
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
