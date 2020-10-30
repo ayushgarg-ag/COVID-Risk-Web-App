@@ -29,7 +29,10 @@ td {
   font-weight: bold;
 
 }
-
+label {
+  font-size: 20px;
+  padding-right: 10px;
+}
 /* removed default arrows inside input boxes */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -37,7 +40,7 @@ input::-webkit-inner-spin-button{
   margin: 0;
 }
 
-input {
+input[type="text"],input[type="number"] {
   height: 40px;
   width: 120px;
   border-radius: 15px;
@@ -46,7 +49,11 @@ input {
   text-align: center;
   line-height: 0px;
 }
-
+input[type="radio"] {
+  text-align: left;
+  line-height: 0px;
+  margin-right: 10px;
+}
 .slidecontainer {
   width: 100%;
   margin-bottom: 15px;
