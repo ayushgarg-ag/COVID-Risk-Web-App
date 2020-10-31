@@ -220,18 +220,15 @@ function CalculateClassroom(){
             </div>
 
             <a className='button-holder' href="/results">
-                <button className="calc-button" onClick = {calculate}>CALCULATE</button>
+                <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
             </a>
-
-            <p style={{textAlign: 'center'}}>or...</p>
-            <p style={{textAlign: 'center'}}>for a more sophisticated calculation:</p>
 
             <div className='advanced-frame'>
                 <div className='title-bar'>
                     <h1 className='title'>2. ADVANCED PARAMETERS</h1>
                 </div> 
                 <div className='box'>
-                    <p className='directions'><strong>The following are additional parameters that can be changed if a more detailed/custom calculation is desired.<br/><br/>These values are preset to default values and are not required to be modified for a simple basic calculation:</strong></p>
+                    <p className='directions'><strong>** The following are additional parameters that can be changed if a more detailed/custom calculation is desired **<br/><br/>These values are preset to default values and are not required to be modified for a simple basic calculation:</strong></p>
                     <div className='input-line'>
                         <p className='parameter-adv'>Percentage of faculty-age people in community who are infectious (%)</p>
                         <div className='question'>
@@ -370,7 +367,7 @@ function CalculateClassroom(){
             </div>
 
             <a className='button-holder' href="/results">
-                <button className="calc-button" onClick = {calculate}>CALCULATE</button>
+                <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
             </a>
         </div>
     )
