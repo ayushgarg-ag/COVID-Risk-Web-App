@@ -93,9 +93,15 @@ input[type=text]{
     width: 60%;
 }
 
-.calc-button{
+.button-holder{
+    background-color: transparent;
     position: relative;
     top: -100px;
+    margin: 0px 0px 0px 0px;
+}
+
+.calc-button{
+    position: relative;
     width: 15%;
     left: 42.5%;
     height: 70px;

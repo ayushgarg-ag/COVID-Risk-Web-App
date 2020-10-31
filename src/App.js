@@ -23,8 +23,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/basic-classroom" component={BasicClassroom} />
-          <Route path="/advanced-classroom" component={CalculateClassroom} /> {/* CHANGE THIS BACK TO AdvancedClassroom */}
+          <Route path="/basic-classroom" component={CalculateClassroom} />
+          <Route path="/advanced-classroom" component={CalculateClassroom} /> {/* no need for option to choose between anymore? */}
           <Route path="/basic-dining" component={BasicDining} />
           <Route path="/advanced-dining" component={AdvancedDining} />
           <Route path="/basic-commonroom" component={BasicCommonroom} />

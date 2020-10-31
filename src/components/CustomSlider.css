@@ -4,6 +4,11 @@
     height: 90px;
     padding: 40px 0px;
     background-color: transparent;
+    transition: opacity;
+}
+#frame:hover .thumb{
+    transition-duration: 0.2s;
+    opacity: 1;
 }
 
 .bar{
@@ -32,21 +37,22 @@
     border-radius: 5px;
     background-color: #012169;
 }
-.bar > .thumb{
+.thumb{
     position: absolute;
-    z-index: 3;
+    z-index: 45;
     width: 30px;
     height: 30px;
     background-color: #012169;
     border-radius: 50%;
-    opacity: 1;
+    opacity: 0.5;
 }
-.bar > .thumb.left{
+.thumb.left{
     transform: translate(-15px, -10px);
 }
-.bar > .thumb.right{
+.thumb.right{
     transform: translate(15px, -10px);
 }
+
 
 .bar > .info{
     position: absolute;

@@ -115,10 +115,10 @@ function CalculateClassroom(){
       maxFacultyInhalation: '',
       minStudentInhalation: '',
       maxStudentInhalation: '',
-      meanFacultyQuantaE: '',
-      sdFacultyQuantaE: '',
-      meanStudentQuantaE: '',
-      sdStudentQuantaE: ''
+      meanFacultyQuantaE: 1.5,
+      sdFacultyQuantaE: 0.71,
+      meanStudentQuantaE: 0.69,
+      sdStudentQuantaE: 0.71
     });
 
     function changeBodyInfo(e) {
@@ -219,9 +219,12 @@ function CalculateClassroom(){
                 </div>
             </div>
 
-            <a href="/results">
+            <a className='button-holder' href="/results">
                 <button className="calc-button" onClick = {calculate}>CALCULATE</button>
             </a>
+
+            <p style={{textAlign: 'center'}}>or...</p>
+            <p style={{textAlign: 'center'}}>for a more sophisticated calculation:</p>
 
             <div className='advanced-frame'>
                 <div className='title-bar'>
@@ -339,10 +342,36 @@ function CalculateClassroom(){
                             <CustomSlider min='0' max='0.02' step_count='0.001' defaultLeft='0.005' defaultRight='0.007'/>
                         </div>
                     </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>log10[Quanta emission rate: Faculty (quanta/hour)]</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderQuantaEmissionTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <p className='parameter-basic'></p>
+                        <input type = "number" className = "meanFacultyQuantaE" value = {body.meanFacultyQuantaE} onChange = {changeBodyInfo}/>
+                        <input type = "number" className = "sdFacultyQuantaE" value = {body.sdFacultyQuantaE} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>log10[Quanta emission rate: Student (quanta/hour)]</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderQuantaEmissionTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <p className='parameter-basic'></p>
+                        <input type = "number" className = "meanStudentQuantaE" value = {body.meanStudentQuantaE} onChange = {changeBodyInfo}/>
+                        <input type = "number" className = "sdStudentQuantaE" value = {body.sdStudentQuantaE} onChange = {changeBodyInfo}/>
+                    </div>
 
                     <br/>
                 </div>
             </div>
+
+            <a className='button-holder' href="/results">
+                <button className="calc-button" onClick = {calculate}>CALCULATE</button>
+            </a>
         </div>
     )
 }
