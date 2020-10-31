@@ -217,11 +217,12 @@ function CalculateClassroom(){
                     </div>
                     <br/>
                 </div>
+                <a className='button-holder' href="/results">
+                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>
             </div>
 
-            <a className='button-holder' href="/results">
-                <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
-            </a>
+            
 
             <div className='advanced-frame'>
                 <div className='title-bar'>
@@ -364,11 +365,10 @@ function CalculateClassroom(){
 
                     <br/>
                 </div>
-            </div>
-
-            <a className='button-holder' href="/results">
-                <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
-            </a>
+                <a className='button-holder' href="/results">
+                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>
+            </div>            
         </div>
     )
 }
