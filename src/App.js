@@ -12,6 +12,7 @@ import BasicCommonroom from './components/BasicCommonroom';
 import AdvancedCommonroom from './components/AdvancedCommonroom';
 import CalculateHome from './components/CalculateHome';
 import Results from './components/Results';
+import CalculateClassroom from './components/CalculateClassroom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/basic-classroom" component={BasicClassroom} />
-          <Route path="/advanced-classroom" component={AdvancedClassroom} />
+          <Route path="/advanced-classroom" component={CalculateClassroom} /> {/* CHANGE THIS BACK TO AdvancedClassroom */}
           <Route path="/basic-dining" component={BasicDining} />
           <Route path="/advanced-dining" component={AdvancedDining} />
           <Route path="/basic-commonroom" component={BasicCommonroom} />
