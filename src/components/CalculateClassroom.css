@@ -8,6 +8,15 @@
     margin: 100px 0px;
 }
 
+.advanced-frame{
+    position: relative;
+    width: 60%;
+    height: auto;
+    background-color: transparent;
+    left: 20%;
+    margin: 100px 0px;
+}
+
 .title-bar{
     position: relative;
     width: 100%;
@@ -21,6 +30,7 @@
     top: 50%;
     transform: translateY(-120%);
     font-size: 200%;
+    text-align: center;
 }
 
 .box{
@@ -45,12 +55,28 @@
     display: flex;
 }
 
-.input-line > .parameter{
+.input-line > .parameter-basic{
     margin-left: 0;
     margin-right: auto;
     background-color: transparent;
-    width: 80%;
-
+    width: auto;
+}
+.input-line > .parameter-adv{
+    margin-left: 0;
+    margin-right: 0;
+    background-color: transparent;
+    width: 40%;
+}
+.input-line > .slider-bar{
+    background-color: transparent;
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    width: 60%;
+}
+.input-line > .question{
+    margin-left: 0;
+    margin-right: 50px;
 }
 
 input[type=number]{
@@ -64,13 +90,23 @@ input[type=text]{
     margin-left: auto;
     margin-right: 0;
     border: none;
-    width: 100%;
+    width: 60%;
 }
 
-.btn.btn-primary{
+.calc-button{
     position: relative;
-    top: -150px;
+    top: -100px;
     width: 15%;
+    left: 42.5%;
     height: 70px;
     font-size: 150%;
+    background-color: #FAA251;
+    color: black;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 2px 4px rgb(200, 200, 200);
+    transition: opacity 0.15s ease-in-out;
+}
+.calc-button:hover{
+    opacity: 0.5;
 }
