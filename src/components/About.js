@@ -1,13 +1,13 @@
 import React from 'react';
 import './About.css';
-import CustomSlider from './CustomSlider';
+// import CustomSlider from './CustomSlider';
 
 function About(){
     return(
         <nav className="left-layout">
             <div>
                 <h1 className="title">ABOUT THE MODEL</h1>
-                <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
+                {/* <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/> */}
                 <p className="about-desc">
                     This is a tool to help understand COVID-19 transmission risk to students and teachers/professors 
                     due to transmission by microscopic airborne particles (i.e. aerosols) in classroom settings. 

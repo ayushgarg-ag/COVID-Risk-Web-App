@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import './BasicClassroom.css';
-import { BsFillQuestionCircleFill } from "react-icons/bs";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import './Classroom.css';
+// import { BsFillQuestionCircleFill } from "react-icons/bs";
+// import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+// import Tooltip from "react-bootstrap/Tooltip";
 
-function renderTooltip(props) {
-  return <Tooltip {...props}>Typical value for the general population, with a variety of types of masks and also variation on how well they are worn
-  </Tooltip>;
-}
+// function renderTooltip(props) {
+//   return <Tooltip {...props}>Typical value for the general population, with a variety of types of masks and also variation on how well they are worn
+//   </Tooltip>;
+// }
 
 function BasicClassroom(){
     const [body, setBody] = useState({
