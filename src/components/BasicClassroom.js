@@ -1,85 +1,49 @@
-import React from 'react';
-import './BasicClassroom.css';
-import { BsFillQuestionCircleFill } from "react-icons/bs";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import React, {useState} from 'react';
+import './Classroom.css';
+// import { BsFillQuestionCircleFill } from "react-icons/bs";
+// import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+// import Tooltip from "react-bootstrap/Tooltip";
 
-function renderTooltip(props) {
-  return <Tooltip {...props}>Typical value for the general population, with a variety of types of masks and also variation on how well they are worn
-  </Tooltip>;
-}
+// function renderTooltip(props) {
+//   return <Tooltip {...props}>Typical value for the general population, with a variety of types of masks and also variation on how well they are worn
+//   </Tooltip>;
+// }
 
 function BasicClassroom(){
-    var numFaculty = 1;
-    var numStudents;
-    var numSessions;
-    var durationSessions;
-    var classFloorArea;
-    var classHeight;
-    var zipCode;
-    var facultyInfectious;
-    var studentInfectious;
-    var maskEfficiency = 30;
+    const [body, setBody] = useState({
+      numFaculty: 1,
+      numStudents: '',
+      numSessions: '',
+      durationSessions: '',
+      classFloorArea: '',
+      classHeight: '',
+      county: '',
+      state: '',
+      masks:'1'
+    });
 
-    function setNumFaculty(event) {
-      numFaculty = parseInt(event.target.value);
-    }
-
-    function slider(event) {
-      var slidecontainer = document.getElementById("myRange");
-      var output = document.getElementById("demo");
-      output.innerHTML = slidecontainer.value;
-      slidecontainer.onInput = function() {
-        output.innerHTML = this.value;
-      }
+    function changeBodyInfo(e) {
+      setBody({...body, [e.target.className]:e.target.value})
     }
 
-    function setNumStudents(event) {
-      numStudents = parseInt(event.target.value);
-    }
-    function setNumSessions(event) {
-      numSessions = parseInt(event.target.value);
-    }
-    function setDurationSessions(event) {
-      durationSessions = parseInt(event.target.value);
-    }
-    function setClassFloorArea(event) {
-      classFloorArea = parseFloat(event.target.value);
-    }
-    function setClassHeight(event) {
-      classHeight = parseFloat(event.target.value);
-    }
-    function setZipCode(event) {
-      zipCode = event.target.value;
-    }
-    function setStudentInfectious(event) {
-      facultyInfectious = parseFloat(event.target.value);
-    }
-    function setFacultyInfectious(event) {
-      studentInfectious = parseFloat(event.target.value);
-    }
-    function setMaskEfficiency(event) {
-      maskEfficiency = parseFloat(event.target.value);
-    }
   async function calculate() {
-    var body = {
-      'numFaculty': numFaculty,
-      'numStudents': numStudents,
-      'numSessions': numSessions,
-      'durationSessions': durationSessions,
-      'classFloorArea': classFloorArea,
-      'classHeight': classHeight,
-      'zipCode': zipCode,
-      'facultyInfectious': facultyInfectious,
-      'studentInfectious': studentInfectious,
-      'maskEfficiency': maskEfficiency
+    var inputs = {
+      'numFaculty': parseInt(body.numFaculty),
+      'numStudents': parseInt(body.numStudents),
+      'numSessions': parseInt(body.numSessions),
+      'durationSessions': parseFloat(body.durationSessions),
+      'classFloorArea': parseFloat(body.classFloorArea),
+      'classHeight': parseFloat(body.classHeight),
+      'county': body.country,
+      'state': body.state,
+      'masks':parseInt(body.masks)
     };
 
     // // TODO: Somehow carry this data to the next page/function and send data to python backend
     // console.log(body);
 
     const response = await fetch('/api/classroombasic', {
-      body: JSON.stringify(body), // body data type must match "Content-Type" header
+      body: JSON.stringify(inputs), // body data type must match "Content-Type" header
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -93,107 +57,86 @@ function BasicClassroom(){
             <h2 className="title">CLASSROOM CALCULATION</h2>
             <p className="desc">Please input the appropriate values in the input boxes below.</p>
             <form>
-              <table className="inputs">
-                <tbody>
-                  <tr>
-                    <td>
-                      <p className = "label">Number of Faculty:</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "num-faculty" value = {numFaculty} onChange = {setNumFaculty}/>
-                    </td>
-                  </tr>
-                  <div className = "slidecontainer">
-                  <tr>
-                    <td>
-                      <p className = "label">Slider:</p>
-                    </td>
-                    <td>
-                      <input type = "range" className = "slider" min = "0" max = "100" id = "myRange" onInput = {slider}/>
-                      <p> Value: <span id="demo"></span></p>
-                    </td>
-                  </tr>
-                  </div>
-                  <tr>
-                    <td className = "label">
-                      <p className = "label">Number of Students:</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "num-students" value = {numStudents} onChange = {setNumStudents}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className = "label">Number of In-Person Sessions:</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "num-sessions" value = {numSessions} onChange = {setNumSessions}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className = "label">Duration of In-Person Sessions (minutes):</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "duration-sessions" value = {durationSessions} onChange = {setDurationSessions}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className = "label">Classroom Floor Area (sq. ft.):</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "class-floor-area" value = {classFloorArea} onChange = {setClassFloorArea}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className = "label">Classroom Height (ft.)</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "class-height" value = {classHeight} onChange = {setClassHeight}/>
-                    </td>
-                  </tr>
-                  {/* I think prof said that for the basic we should just have 1 step so I combined both pages */}
-                  <tr>
-                    <td>
-                      <p className = "label">Zip Code (optional)</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "zip-code" value = {zipCode} onChange = {setZipCode}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className = "label">% Infectious Faculty in Community</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "faculty-infectious" value = {facultyInfectious} onChange = {setFacultyInfectious}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p className = "label">% Infectious Student in Community</p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "student-infectious" value = {studentInfectious} onChange = {setStudentInfectious}/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {/* We can add the slider bar later, this is temp */}
-                      <p className = "label">Mask Efficiency in Reducing Virus Exhalation (%) <OverlayTrigger
-                          placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
-                          <BsFillQuestionCircleFill variant="success" />
-                        </OverlayTrigger>
-                      </p>
-                    </td>
-                    <td>
-                      <input type = "number" className = "mask-effiency" value = {maskEfficiency} onChange = {setMaskEfficiency}/>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <table className="inputs">
+              <tbody>
+                <tr>
+                  <td>
+                    <p className = "label">Number of Faculty:</p>
+                  </td>
+                  <td>
+                    <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td className = "label">
+                    <p className = "label">Number of Students:</p>
+                  </td>
+                  <td>
+                    <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">Number of In-Person Sessions:</p>
+                  </td>
+                  <td>
+                    <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">Duration of In-Person Sessions (minutes):</p>
+                  </td>
+                  <td>
+                    <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">Classroom Floor Area (sq. ft.):</p>
+                  </td>
+                  <td>
+                    <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">Classroom Height (ft.)</p>
+                  </td>
+                  <td>
+                    <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">County</p>
+                  </td>
+                  <td>
+                    <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">State</p>
+                  </td>
+                  <td>
+                    <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p className = "label">Is everyone wearing masks?</p>
+                  </td>
+                  <td>
+                    <input type="radio" id="yes" name="masks" className="masks" value="1" onChange = {changeBodyInfo} defaultChecked/>
+                    <label className="maskLabel" htmlFor="yes">Yes</label>
+                    <input type="radio" id="no" name="masks" className="masks" value="0" onChange = {changeBodyInfo}/>
+                    <label className="maskLabel" htmlFor="no">No</label>
+                  </td>
+                </tr>
+                {/* I think prof said that for the basic we should just have 1 step so I combined both pages */}
+              </tbody>
+            </table>
             </form>
             <a href="/results">
                 <button className="btn btn-primary" onClick = {calculate}>CALCULATE</button>

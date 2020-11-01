@@ -24,7 +24,8 @@ def formdata():
         durationSessions = content['durationSessions']
         classFloorArea = content['classFloorArea']
         classHeight = content['classHeight']
-        zipCode = content['zipCode']
+        county = content['county']
+        state = content['state']
         facultyInfectious = content['facultyInfectious']
         studentInfectious = content['studentInfectious']
         studentNum, facultyNum, studentResults, facultyResults = calculate(
