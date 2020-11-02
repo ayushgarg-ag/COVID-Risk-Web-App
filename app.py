@@ -26,16 +26,16 @@ def formdata():
         classHeight = content['classHeight']
         county = content['county']
         state = content['state']
-        facultyInfectious = content['facultyInfectious']
-        studentInfectious = content['studentInfectious']
+
         studentNum, facultyNum, studentResults, facultyResults = calculate(
             numFaculty, numStudents, numSessions, durationSessions)
-        while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
-            pass
-        return
+        # while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
+        #     pass
+
+        return jsonify({})
     else:
-        while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
-            pass
+        # while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
+        #     pass
         results = {
             'percentFaculty': facultyNum,
             'percentStudent': studentNum,

@@ -26,31 +26,28 @@ function BasicClassroom(){
       setBody({...body, [e.target.className]:e.target.value})
     }
 
-  async function calculate() {
-    var inputs = {
-      'numFaculty': parseInt(body.numFaculty),
-      'numStudents': parseInt(body.numStudents),
-      'numSessions': parseInt(body.numSessions),
-      'durationSessions': parseFloat(body.durationSessions),
-      'classFloorArea': parseFloat(body.classFloorArea),
-      'classHeight': parseFloat(body.classHeight),
-      'county': body.country,
-      'state': body.state,
-      'masks':parseInt(body.masks)
-    };
+    async function calculate() {
+      var inputs = {
+        'numFaculty': parseInt(body.numFaculty),
+        'numStudents': parseInt(body.numStudents),
+        'numSessions': parseInt(body.numSessions),
+        'durationSessions': parseFloat(body.durationSessions),
+        'classFloorArea': parseFloat(body.classFloorArea),
+        'classHeight': parseFloat(body.classHeight),
+        'county': body.county,
+        'state': body.state,
+        'masks': parseInt(body.masks)
+      };
 
-    // // TODO: Somehow carry this data to the next page/function and send data to python backend
-    // console.log(body);
-
-    const response = await fetch('/api/classroombasic', {
-      body: JSON.stringify(inputs), // body data type must match "Content-Type" header
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    const result = await response.json();
-    console.log(result);
+      const response = await fetch('/api/classroombasic', {
+        body: JSON.stringify(inputs),
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+      const result = await response.json();
+      console.log(result);
     }
     return(
         <div className="left-layout">
@@ -134,11 +131,10 @@ function BasicClassroom(){
                     <label className="maskLabel" htmlFor="no">No</label>
                   </td>
                 </tr>
-                {/* I think prof said that for the basic we should just have 1 step so I combined both pages */}
               </tbody>
             </table>
             </form>
-            <a href="/results">
+            <a href='results'>
                 <button className="btn btn-primary" onClick = {calculate}>CALCULATE</button>
             </a>
         </div>
