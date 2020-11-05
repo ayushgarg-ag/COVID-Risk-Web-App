@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './CalculateClassroom.css';
+import './Classroom.css';
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -7,7 +7,7 @@ import CustomSlider from './CustomSlider';
 
 function renderPercentageInfectiousTooltip(props) {
   return <Tooltip {...props}>This depends on the state of the pandemic in a given region and time period, as well as the dynamics of the disease and its infectivity in different types of cases, which are not known very precisely. 
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A4" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A4" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -15,7 +15,7 @@ function renderPercentageInfectiousTooltip(props) {
 
 function renderMaskEfficiencyExhalationTooltip(props) {
   return <Tooltip {...props}>For the case where no masks are used, set mask efficiency to 0.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A30" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A30" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -23,7 +23,7 @@ function renderMaskEfficiencyExhalationTooltip(props) {
 
 function renderMaskEfficiencyInhalationTooltip(props) {
   return <Tooltip {...props}>For the case where no masks are used, set mask efficiency to 0.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A44" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A44" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -31,7 +31,7 @@ function renderMaskEfficiencyInhalationTooltip(props) {
 
 function renderRoomVentilationTooltip(props) {
   return <Tooltip {...props}> See link for literature values for several situations in h-1.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A51" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A51" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -39,7 +39,7 @@ function renderRoomVentilationTooltip(props) {
 
 function renderAddlControlMeasuresTooltip(props) {
   return <Tooltip {...props}> See link for virus removal rate due to additional control measures.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A66" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A66" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -47,7 +47,7 @@ function renderAddlControlMeasuresTooltip(props) {
 
 function renderDecayRateTooltip(props) {
   return <Tooltip {...props}> See link for literature values in h-1.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A78" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A78" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -55,7 +55,7 @@ function renderDecayRateTooltip(props) {
 
 function renderDepositionRateTooltip(props) {
   return <Tooltip {...props}>An important uncertainty is the size range of the infective particles. Here we assume 1-5 um, based on our read of the literature. 
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A95" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A95" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -63,7 +63,7 @@ function renderDepositionRateTooltip(props) {
 
 function renderFacultyInhalationRateTooltip(props) {
   return <Tooltip {...props}>Default values for faculty are mean percentile breathing rates for combination of passive and light activity for 41 to &lt51 years age-group.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -71,7 +71,7 @@ function renderFacultyInhalationRateTooltip(props) {
 
 function renderStudentInhalationRateTooltip(props) {
   return <Tooltip {...props}>Default values for students are short-term mean-95th percentile breathing rates for passive activity for 16 to &lt21 years age-group.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -79,7 +79,7 @@ function renderStudentInhalationRateTooltip(props) {
 
 function renderQuantaEmissionTooltip(props) {
   return <Tooltip {...props}>
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A107" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A107" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -233,7 +233,7 @@ function CalculateClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Percentage of faculty-age people in community who are infectious (%)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderPercentageInfectiousTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 1150 }} overlay={renderPercentageInfectiousTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>

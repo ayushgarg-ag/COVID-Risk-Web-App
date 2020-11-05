@@ -7,7 +7,7 @@ import CustomSlider from './CustomSlider';
 
 function renderPercentageInfectiousTooltip(props) {
   return <Tooltip {...props}>This depends on the state of the pandemic in a given region and time period, as well as the dynamics of the disease and its infectivity in different types of cases, which are not known very precisely. 
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A4" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A4" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -15,7 +15,7 @@ function renderPercentageInfectiousTooltip(props) {
 
 function renderMaskEfficiencyExhalationTooltip(props) {
   return <Tooltip {...props}>For the case where no masks are used, set mask efficiency to 0.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A30" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A30" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -23,7 +23,7 @@ function renderMaskEfficiencyExhalationTooltip(props) {
 
 function renderMaskEfficiencyInhalationTooltip(props) {
   return <Tooltip {...props}>For the case where no masks are used, set mask efficiency to 0.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A44" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A44" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -31,7 +31,7 @@ function renderMaskEfficiencyInhalationTooltip(props) {
 
 function renderRoomVentilationTooltip(props) {
   return <Tooltip {...props}> See link for literature values for several situations in h-1.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A51" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A51" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -39,7 +39,7 @@ function renderRoomVentilationTooltip(props) {
 
 function renderAddlControlMeasuresTooltip(props) {
   return <Tooltip {...props}> See link for virus removal rate due to additional control measures.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A66" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A66" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -47,7 +47,7 @@ function renderAddlControlMeasuresTooltip(props) {
 
 function renderDecayRateTooltip(props) {
   return <Tooltip {...props}> See link for literature values in h-1.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A78" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A78" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -55,7 +55,7 @@ function renderDecayRateTooltip(props) {
 
 function renderDepositionRateTooltip(props) {
   return <Tooltip {...props}>An important uncertainty is the size range of the infective particles. Here we assume 1-5 um, based on our read of the literature. 
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A95" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A95" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -63,7 +63,7 @@ function renderDepositionRateTooltip(props) {
 
 function renderFacultyInhalationRateTooltip(props) {
   return <Tooltip {...props}>Default values for faculty are mean percentile breathing rates for combination of passive and light activity for 41 to &lt51 years age-group.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -71,7 +71,7 @@ function renderFacultyInhalationRateTooltip(props) {
 
 function renderStudentInhalationRateTooltip(props) {
   return <Tooltip {...props}>Default values for students are short-term mean-95th percentile breathing rates for passive activity for 16 to &lt21 years age-group.
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A101" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -79,7 +79,7 @@ function renderStudentInhalationRateTooltip(props) {
 
 function renderQuantaEmissionTooltip(props) {
   return <Tooltip {...props}>
-  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A107" target="_blank">
+  <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A107" target="_blank" rel="noopener noreferrer">
     More information
   </a>
   </Tooltip>;
@@ -176,228 +176,194 @@ function AdvancedClassroom(){
     }
     return(
         <div className="left-layout">
-            <h2 className="title">CLASSROOM CALCULATION</h2>   
-            <p className="desc">Please input the appropriate values in the input boxes below.</p>
-            <form>
-            <table className="inputs">
-              <tbody>
-                <h2>Step 1: Classroom Parameters (Fixed)</h2>
-                <tr>
-                  <td>
-                    <p className = "label">Number of Faculty:</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td className = "label">
-                    <p className = "label">Number of Students:</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Number of In-Person Sessions:</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Duration of In-Person Sessions (minutes):</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Classroom Floor Area (sq. ft.):</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Classroom Height (ft.)</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">County</p>
-                  </td>
-                  <td>
-                    <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">State</p>
-                  </td>
-                  <td>
-                    <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr><br/>
-                <h2>Step 2: Virus Parameters (Variable)</h2>
-                <tr>
-                  <td>
-                    <p className = "label">Percentage of faculty-age people in community who are infectious (%)</p>
-                    {/* TODO: make this inline */}
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 5000 }} overlay={renderPercentageInfectiousTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    {/* TODO: Change the length of the sliders */}
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td><nobr>
-                    <p className = "label">Percentage of student-age people in community who are infectious (%)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 5000 }} overlay={renderPercentageInfectiousTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                    </nobr>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Mask efficiency in reducing virus exhalation (%)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderMaskEfficiencyExhalationTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Mask efficiency in reducing virus inhalation (%)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderMaskEfficiencyInhalationTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Room air ventilation rate w/outside air (air changes per hour)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderRoomVentilationTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Additional control measures (effective air changes per hour)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderAddlControlMeasuresTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Decay rate of virus infectivity indoors (per hour)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 2500 }} overlay={renderDecayRateTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Deposition rate of virus to surfaces (per hour)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderDepositionRateTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Inhalation rate: Faculty (m³/minute)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderFacultyInhalationRateTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Inhalation rate: Student (m³/minute)</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderStudentInhalationRateTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <CustomSlider className='yeet' min='0' max='100' step_count='0.5'/>
-                  </td>
-                </tr><br/>
-                <h4>For the below variables, please click the links before specifying.</h4>
-                <tr>
-                  <td>
-                    <p className = "label">log10[Quanta emission rate: Faculty (quanta/hour)]</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 800 }} overlay={renderQuantaEmissionTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                      {/* TODO: MAKE BOXES ON SAME LINE */}
-                    <p>Mean</p>
-                    <input type = "number" className = "meanFacultyQuantaE" value = {body.meanFacultyQuantaE} onChange = {changeBodyInfo}/>
-                    <p>Std. Deviation</p>
-                    <input type = "number" className = "sdFacultyQuantaE" value = {body.sdFacultyQuantaE} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    {/* TODO: MAKE BOXES ON SAME LINE */}
-                    <p className = "label">log10[Quanta emission rate: Student (quanta/hour)]</p>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 800 }} overlay={renderQuantaEmissionTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger><br/>
-                  </td>
-                  <td>
-                    <input type = "number" className = "meanStudentQuantaE" value = {body.meanStudentQuantaE} onChange = {changeBodyInfo}/>
-                    <input type = "number" className = "sdStudentQuantaE" value = {body.sdStudentQuantaE} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </form>
-            <a href="/results">
-                <button className="btn btn-primary" onClick = {calculate}>CALCULATE</button>
-            </a>
+          <div className='basic-frame'>
+              <div className='title-bar'>
+                  <h1 className='title'>STEP 1: CLASSROOM PARAMETERS</h1>
+              </div>
+              <div className='box'>
+                  <p className='directions'><strong>Please enter the following parameters:</strong></p>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Number of faculty?</p>
+                      <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Number of students?</p>
+                      <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Number of in-person sessions?</p>
+                      <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Duration of in-person sessions (min)?</p>
+                      <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Classroom floor area (sq. ft)?</p>
+                      <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Classroom Height (ft)?</p>
+                      <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>County</p>
+                      <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>State</p>
+                      <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
+                  </div>
+                  <br/>
+                </div>
+            </div>
+            <div className='advanced-frame'>
+                <div className='title-bar'>
+                    <h1 className='title'>STEP 2: VARIABLE INPUTS</h1>
+                </div> 
+                <div className='box'>
+                    <p className='directions'><strong>** The following are additional parameters that can be changed if a more detailed/custom calculation is desired **<br/><br/>These values are preset to default values and are not required to be modified for a simple basic calculation:</strong></p>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Percentage of faculty-age people in community who are infectious (%)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 5000 }} overlay={renderPercentageInfectiousTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='10' step_count='0.1' defaultLeft='0.7' defaultRight='1.4'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Percentage of student-age people in community who are infectious (%)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 5000 }} overlay={renderPercentageInfectiousTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='10' step_count='0.1' defaultLeft='0.7' defaultRight='1.4'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Mask efficiency in reducing virus exhalation (%)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderMaskEfficiencyExhalationTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='100' step_count='1' defaultLeft='40' defaultRight='60'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Mask efficiency in reducing virus inhalation (%)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderMaskEfficiencyInhalationTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='100' step_count='1' defaultLeft='30' defaultRight='50'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Room air ventilation rate w/outside air (air changes per hour)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderRoomVentilationTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='10' step_count='1' defaultLeft='1' defaultRight='4'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Additional control measures (effective air changes per hour)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderAddlControlMeasuresTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='100' step_count='1' defaultLeft='0' defaultRight='100'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Decay rate of virus infectivity indoors (per hour)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2500 }} overlay={renderDecayRateTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='1' step_count='0.01' defaultLeft='0' defaultRight='1'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Deposition rate of virus to surfaces (per hour)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderDepositionRateTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='1.5' step_count='0.1' defaultLeft='0.3' defaultRight='1.5'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Inhalation rate: Faculty (m³/minute)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderFacultyInhalationRateTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0.0' max='0.02' step_count='0.001' defaultLeft='0.005' defaultRight='0.010'/>
+                        </div>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>Inhalation rate: Student (m³/minute)</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderStudentInhalationRateTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <div className='slider-bar'>
+                            <CustomSlider min='0' max='0.02' step_count='0.001' defaultLeft='0.005' defaultRight='0.007'/>
+                        </div>
+                    </div>
+                    <p className='directions'><strong>For the below variables, please click the links before specifying.</strong></p>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>log10[Quanta emission rate: Faculty (quanta/hour)]</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 800 }} overlay={renderQuantaEmissionTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <p className='parameter-basic'></p>
+                        <input type = "number" className = "meanFacultyQuantaE" value = {body.meanFacultyQuantaE} onChange = {changeBodyInfo}/>
+                        <input type = "number" className = "sdFacultyQuantaE" value = {body.sdFacultyQuantaE} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-adv'>log10[Quanta emission rate: Student (quanta/hour)]</p>
+                        <div className='question'>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 800 }} overlay={renderQuantaEmissionTooltip}>
+                                <BsFillQuestionCircleFill variant="success" />
+                            </OverlayTrigger><br/>
+                        </div>
+                        <p className='parameter-basic'></p>
+                        <input type = "number" className = "meanStudentQuantaE" value = {body.meanStudentQuantaE} onChange = {changeBodyInfo}/>
+                        <input type = "number" className = "sdStudentQuantaE" value = {body.sdStudentQuantaE} onChange = {changeBodyInfo}/>
+                    </div>
+                    <br/>
+                </div>
+                <a className='button-holder' href="/results">
+                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>
+            </div>
         </div>
     )
 }
-
 
 export default AdvancedClassroom;

@@ -2,11 +2,6 @@
   font-size: 60px;
 }
 
-.desc{
-  font-size: 20px;
-  margin: 30px 0px;
-}
-
 /*
 .inputs {
   margin-left: auto;
@@ -15,10 +10,6 @@
 }
 */
 
-td {
-  padding-bottom: 10px;
-  padding-right: 100px;
-}
 .label {
   /* font-family: "Quicksand";
   text-align: left;
@@ -86,4 +77,119 @@ input[type="radio"] {
 
 .slider:hover {
     opacity: 1;
+}
+
+.basic-frame{
+  position: relative;
+  width: 40%;
+  min-width: 500px;
+  height: auto;
+  background-color: transparent;
+  left: 30%;
+  margin: 100px 0px 0px 0px;
+}
+
+.advanced-frame{
+  position: relative;
+  width: 60%;
+  min-width: 700px;
+  height: auto;
+  background-color: transparent;
+  left: 20%;
+  margin: 0px 0px 0px 0px;
+}
+
+.title-bar{
+  position: relative;
+  width: 100%;
+  height: 170px;
+  background-color: #012169;
+  color: white;
+  border-radius: 30px;
+}
+.title-bar > .title{
+  position: relative;
+  top: 50%;
+  transform: translateY(-120%);
+  font-size: 200%;
+  text-align: center;
+}
+
+.box{
+  position: relative;
+  width: 100%;
+  height: auto + 10px;
+  background-color: white;
+  top: -60px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 4px rgb(200, 200, 200);
+}
+
+.directions{
+  position: relative;
+  padding: 40px 15px 20px 15px;
+}
+
+.input-line{
+  position: relative;
+  margin: 0px 40px 20px 40px;
+  background-color: transparent;
+  display: flex;
+}
+
+.input-line > .parameter-basic{
+  margin-left: 0;
+  margin-right: auto;
+  background-color: transparent;
+  width: auto;
+}
+.input-line > .parameter-adv{
+  margin-left: 0;
+  margin-right: 0;
+  background-color: transparent;
+  width: 40%;
+}
+.input-line > .slider-bar{
+  background-color: transparent;
+  position: relative;
+  margin-left: auto;
+  margin-right: 0;
+  width: 60%;
+}
+.input-line > .question{
+  margin-left: 0;
+  margin-right: 50px;
+}
+
+input[type=number]{
+  background-color: #E2E2E2;
+  margin-left: 10px;
+  margin-right: 0;
+  border: none;
+}
+input[type=text]{
+  background-color: #E2E2E2;
+  margin-left: auto;
+  margin-right: 0;
+  border: none;
+  width: 60%;
+}
+
+.calc-button{
+  position: relative;
+  width: 200px;
+  height: 70px;
+  top: -80px;
+  left: calc(100% - 220px);
+  font-size: 150%;
+  background-color: #FAA251;
+  color: black;
+  font-size: 150%;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 2px 4px rgb(200, 200, 200);
+  transition: background-color 0.15s ease-in-out;
+}
+.calc-button:hover{
+  background-color: #FBBC83;
 }
