@@ -51,92 +51,61 @@ function BasicClassroom(){
     }
     return(
         <div className="left-layout">
-            <h2 className="title">CLASSROOM CALCULATION</h2>
-            <p className="desc">Please input the appropriate values in the input boxes below.</p>
-            <form>
-            <table className="inputs">
-              <tbody>
-                <tr>
-                  <td>
-                    <p className = "label">Number of Faculty:</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td className = "label">
-                    <p className = "label">Number of Students:</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Number of In-Person Sessions:</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Duration of In-Person Sessions (minutes):</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Classroom Floor Area (sq. ft.):</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Classroom Height (ft.)</p>
-                  </td>
-                  <td>
-                    <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">County</p>
-                  </td>
-                  <td>
-                    <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">State</p>
-                  </td>
-                  <td>
-                    <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p className = "label">Is everyone wearing masks?</p>
-                  </td>
-                  <td>
-                    <input type="radio" id="yes" name="masks" className="masks" value="1" onChange = {changeBodyInfo} defaultChecked/>
-                    <label className="maskLabel" htmlFor="yes">Yes</label>
-                    <input type="radio" id="no" name="masks" className="masks" value="0" onChange = {changeBodyInfo}/>
-                    <label className="maskLabel" htmlFor="no">No</label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </form>
-            <a href='results'>
-                <button className="btn btn-primary" onClick = {calculate}>CALCULATE</button>
-            </a>
+          <div className='basic-frame'>
+              <div className='title-bar'>
+                  <h1 className='title'>BASIC CALCULATION</h1>
+              </div>
+              <div className='box'>
+                  <p className='directions'><strong>Please enter the following parameters:</strong></p>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Number of faculty?</p>
+                      <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Number of students?</p>
+                      <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Number of in-person sessions?</p>
+                      <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Duration of in-person sessions (min)?</p>
+                      <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Classroom floor area (sq. ft)?</p>
+                      <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>Classroom Height (ft)?</p>
+                      <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>County</p>
+                      <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                      <p className='parameter-basic'>State</p>
+                      <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
+                  </div>
+                  <div className='input-line'>
+                    <div>
+                      <p className='parameter-basic'>Is everyone wearing masks?</p>
+                    </div>
+                    <div>
+                      <input type="radio" id="yes" name="masks" className="masks" value="1" onChange = {changeBodyInfo} defaultChecked/>
+                      <label className="maskLabel" htmlFor="yes">Yes</label>
+                      <input type="radio" id="no" name="masks" className="masks" value="0" onChange = {changeBodyInfo}/>
+                      <label className="maskLabel" htmlFor="no">No</label>
+                    </div>
+                  </div>
+                  <br/>
+                </div>
+                <a className='button-holder' href="/results">
+                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>
+            </div>
         </div>
     )
 }

@@ -6,7 +6,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import CustomSlider from './CustomSlider';
 
 function renderPercentageInfectiousTooltip(props) {
-  return <Tooltip {...props}>This depends on the state of the pandemic in a given region and time period, as well as the dynamics of the disease and its infectivity in different types of cases, which are not known very precisely.
+  return <Tooltip {...props}>This depends on the state of the pandemic in a given region and time period, as well as the dynamics of the disease and its infectivity in different types of cases, which are not known very precisely. 
   <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A4" target="_blank" rel="noopener noreferrer">
     More information
   </a>
@@ -54,7 +54,7 @@ function renderDecayRateTooltip(props) {
 }
 
 function renderDepositionRateTooltip(props) {
-  return <Tooltip {...props}>An important uncertainty is the size range of the infective particles. Here we assume 1-5 um, based on our read of the literature.
+  return <Tooltip {...props}>An important uncertainty is the size range of the infective particles. Here we assume 1-5 um, based on our read of the literature. 
   <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A95" target="_blank" rel="noopener noreferrer">
     More information
   </a>
@@ -85,7 +85,7 @@ function renderQuantaEmissionTooltip(props) {
   </Tooltip>;
 }
 
-function AdvancedClassroom(){
+function CalculateClassroom(){
     const [body, setBody] = useState({
       numFaculty: 1,
       numStudents: '',
@@ -115,10 +115,10 @@ function AdvancedClassroom(){
       maxFacultyInhalation: '',
       minStudentInhalation: '',
       maxStudentInhalation: '',
-      meanFacultyQuantaE: '',
-      sdFacultyQuantaE: '',
-      meanStudentQuantaE: '',
-      sdStudentQuantaE: ''
+      meanFacultyQuantaE: 1.5,
+      sdFacultyQuantaE: 0.71,
+      meanStudentQuantaE: 0.69,
+      sdStudentQuantaE: 0.71
     });
 
     function changeBodyInfo(e) {
@@ -174,59 +174,66 @@ function AdvancedClassroom(){
     const result = await response.json();
     console.log(result);
     }
+
     return(
-        <div className="left-layout">
-          <div className='basic-frame'>
-              <div className='title-bar'>
-                  <h1 className='title'>STEP 1: CLASSROOM PARAMETERS</h1>
-              </div>
-              <div className='box'>
-                  <p className='directions'><strong>Please enter the following parameters:</strong></p>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>Number of faculty?</p>
-                      <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>Number of students?</p>
-                      <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>Number of in-person sessions?</p>
-                      <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>Duration of in-person sessions (min)?</p>
-                      <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>Classroom floor area (sq. ft)?</p>
-                      <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>Classroom Height (ft)?</p>
-                      <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>County</p>
-                      <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
-                  </div>
-                  <div className='input-line'>
-                      <p className='parameter-basic'>State</p>
-                      <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
-                  </div>
-                  <br/>
+        <div className='left-layout'>
+            <div className='basic-frame'>
+                <div className='title-bar'>
+                    <h1 className='title'>1. BASIC PARAMETERS</h1>
                 </div>
+                <div className='box'>
+                    <p className='directions'><strong>Please enter the following parameters:</strong></p>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>Number of faculty?</p>
+                        <input type = "number" className = "numFaculty" value = {body.numFaculty} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>Number of students?</p>
+                        <input type = "number" className = "numStudents" value = {body.numStudents} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>Number of in-person sessions?</p>
+                        <input type = "number" className = "numSessions" value = {body.numSessions} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>Duration of in-person sessions (min)?</p>
+                        <input type = "number" className = "durationSessions" value = {body.durationSessions} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>Classroom floor area (sq. ft)?</p>
+                        <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>Classroom Height (ft)?</p>
+                        <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>County</p>
+                        <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
+                    </div>
+                    <div className='input-line'>
+                        <p className='parameter-basic'>State</p>
+                        <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
+                    </div>
+                    <br/>
+                </div>
+                <a className='button-holder' href="/results">
+                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>
             </div>
+
+            
+
             <div className='advanced-frame'>
                 <div className='title-bar'>
-                    <h1 className='title'>STEP 2: VARIABLE INPUTS</h1>
-                </div>
+                    <h1 className='title'>2. ADVANCED PARAMETERS</h1>
+                </div> 
                 <div className='box'>
                     <p className='directions'><strong>** The following are additional parameters that can be changed if a more detailed/custom calculation is desired **<br/><br/>These values are preset to default values and are not required to be modified for a simple basic calculation:</strong></p>
                     <div className='input-line'>
                         <p className='parameter-adv'>Percentage of faculty-age people in community who are infectious (%)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 5000 }} overlay={renderPercentageInfectiousTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 1150 }} overlay={renderPercentageInfectiousTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -237,7 +244,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Percentage of student-age people in community who are infectious (%)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 5000 }} overlay={renderPercentageInfectiousTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderPercentageInfectiousTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -248,7 +255,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Mask efficiency in reducing virus exhalation (%)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderMaskEfficiencyExhalationTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderMaskEfficiencyExhalationTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -259,7 +266,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Mask efficiency in reducing virus inhalation (%)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderMaskEfficiencyInhalationTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderMaskEfficiencyInhalationTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -270,7 +277,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Room air ventilation rate w/outside air (air changes per hour)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderRoomVentilationTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderRoomVentilationTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -281,7 +288,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Additional control measures (effective air changes per hour)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2000 }} overlay={renderAddlControlMeasuresTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderAddlControlMeasuresTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -292,7 +299,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Decay rate of virus infectivity indoors (per hour)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 2500 }} overlay={renderDecayRateTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderDecayRateTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -303,7 +310,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Deposition rate of virus to surfaces (per hour)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderDepositionRateTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderDepositionRateTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -314,7 +321,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Inhalation rate: Faculty (m³/minute)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderFacultyInhalationRateTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderFacultyInhalationRateTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -325,7 +332,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>Inhalation rate: Student (m³/minute)</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 3500 }} overlay={renderStudentInhalationRateTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderStudentInhalationRateTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -333,11 +340,10 @@ function AdvancedClassroom(){
                             <CustomSlider min='0' max='0.02' step_count='0.001' defaultLeft='0.005' defaultRight='0.007'/>
                         </div>
                     </div>
-                    <p className='directions'><strong>For the below variables, please click the links before specifying.</strong></p>
                     <div className='input-line'>
                         <p className='parameter-adv'>log10[Quanta emission rate: Faculty (quanta/hour)]</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 800 }} overlay={renderQuantaEmissionTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderQuantaEmissionTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -348,7 +354,7 @@ function AdvancedClassroom(){
                     <div className='input-line'>
                         <p className='parameter-adv'>log10[Quanta emission rate: Student (quanta/hour)]</p>
                         <div className='question'>
-                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 800 }} overlay={renderQuantaEmissionTooltip}>
+                            <OverlayTrigger placement="right" delay={{ show: 150, hide: 150 }} overlay={renderQuantaEmissionTooltip}>
                                 <BsFillQuestionCircleFill variant="success" />
                             </OverlayTrigger><br/>
                         </div>
@@ -356,14 +362,16 @@ function AdvancedClassroom(){
                         <input type = "number" className = "meanStudentQuantaE" value = {body.meanStudentQuantaE} onChange = {changeBodyInfo}/>
                         <input type = "number" className = "sdStudentQuantaE" value = {body.sdStudentQuantaE} onChange = {changeBodyInfo}/>
                     </div>
+
                     <br/>
                 </div>
                 <a className='button-holder' href="/results">
                     <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
                 </a>
-            </div>
+            </div>            
         </div>
     )
 }
 
-export default AdvancedClassroom;
+
+export default CalculateClassroom;

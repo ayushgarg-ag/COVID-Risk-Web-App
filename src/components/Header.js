@@ -24,7 +24,7 @@ const Styles = styled.div`
 export const Header = () => (
   <Styles>
     <Navbar expand="lg">
-      <Navbar.Brand href="/">COVID-19 Exposure Modeler</Navbar.Brand>
+      <Navbar.Brand href="/"><b>COVID-19 Exposure Modeler</b></Navbar.Brand>
       <Navbar.Brand href="https://duke.edu/" target="blank" id="duke-link">Duke University</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
