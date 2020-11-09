@@ -36,6 +36,7 @@ def formdata():
     else:
         # while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
         #     pass
+
         results = {
             'percentFaculty': facultyNum,
             'percentStudent': studentNum,

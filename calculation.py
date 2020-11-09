@@ -18,6 +18,11 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
     num_class_periods = numSessions
     duration = durationSessions/60
 
+    # num_faculty = 1
+    # num_students = 10
+    # duration = 75/60
+    # num_class_periods = 26
+
     ventilation_w_outside_air = [1,4, 1]
     decay_rate_of_virus = [0,1.0,1]
     deposition_to_surface = [0.3,1.5,1]
@@ -191,9 +196,3 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
     'fac_quants_95': round(fac_quants_95*100,2)}
     
     return (student_mean, fac_mean, studentResults, facultyResults)
-
-
-# print(studentResults)
-# print(student_mean)
-# print(facultyResults)
-# print(fac_mean)
