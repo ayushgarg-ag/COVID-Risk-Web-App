@@ -16,7 +16,7 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
     num_faculty = numFaculty
     num_students = numStudents
     num_class_periods = numSessions
-    duration = durationSessions
+    duration = durationSessions/60
 
     ventilation_w_outside_air = [1,4, 1]
     decay_rate_of_virus = [0,1.0,1]
