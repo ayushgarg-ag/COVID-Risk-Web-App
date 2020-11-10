@@ -47,8 +47,9 @@ function BasicClassroom(){
         },
       });
       const result = await response.json();
-      console.log(result);
+      console.log(result);      
     }
+
     return(
         <div className="left-layout">
           <div className='basic-frame'>
@@ -102,9 +103,9 @@ function BasicClassroom(){
                   </div>
                   <br/>
                 </div>
-                <a className='button-holder' href="/results">
-                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
-                </a>
+                <a className='button-holder' id='link' href="/results">
+                    <button id="calc" className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>                
             </div>
         </div>
     )

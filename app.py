@@ -16,8 +16,14 @@ def formdata():
     global facultyResults
 
     if request.method == 'POST':
+        studentNum = None
+        facultyNum = None
+        studentResults = None
+        facultyResults = None
+
         content = request.data.decode()
         content = json.loads(content)
+
         numFaculty = content['numFaculty']
         numStudents = content['numStudents']
         numSessions = content['numSessions']
@@ -34,8 +40,8 @@ def formdata():
 
         return jsonify({})
     else:
-        # while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
-        #     pass
+        while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
+            pass
 
         results = {
             'percentFaculty': facultyNum,
@@ -52,7 +58,7 @@ def formdata():
             'probStudent95': studentResults['student_quants_95']
         }
         return jsonify(results)
-
+    
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)

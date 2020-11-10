@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Results.css';
+import { useInterval } from "./useInterval";
+
 
 function Results(){
     const [loading, setLoading] = useState(true);
@@ -19,6 +21,43 @@ function Results(){
     const parseValue = (value) => {
         return parseFloat(value).toFixed(2);
     }
+
+    // const [result, setResult] = useState({});
+
+    // useInterval(async () => {
+    //     console.log("Checking if new data has arrived");
+    //     const response = await fetch('/api/classroombasic', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //     });
+    //     var res = await response.json();
+    //     setResult(res);
+    //     loadData(res);
+    // }, 1000);
+
+    // const loadData = async (result) => {
+    //     setLoading(true);
+
+    //     console.log(result);
+
+    //     setPercentFaculty(parseValue(result.percentFaculty));
+    //     setPercentStudent(parseValue(result.percentStudent));
+    //     setProbFaculty5(parseValue(result.probFaculty5));
+    //     setProbFaculty25(parseValue(result.probFaculty25));
+    //     setProbFaculty50(parseValue(result.probFaculty50));
+    //     setProbFaculty75(parseValue(result.probFaculty75));
+    //     setProbFaculty95(parseValue(result.probFaculty95));
+    //     setProbStudent5(parseValue(result.probStudent5));
+    //     setProbStudent25(parseValue(result.probStudent25));
+    //     setProbStudent50(parseValue(result.probStudent50));
+    //     setProbStudent75(parseValue(result.probStudent75));
+    //     setProbStudent95(parseValue(result.probStudent95));
+
+    //     setLoading(false);
+    // };
+
 
     useEffect(() => {
         const loadData = async () => {
@@ -48,7 +87,6 @@ function Results(){
         };
         loadData();
     }, []);
-
 
     if (loading) {
         return(

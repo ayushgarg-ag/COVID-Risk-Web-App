@@ -96,7 +96,7 @@ function AdvancedClassroom(){
       county: '',
       state: '',
       minFacultyInfectious: '',
-      maxFacultyInfectioous: '',
+      maxFacultyInfectious: '',
       minStudentInfectious: '',
       maxStudentInfection: '',
       minMaskEffExhalation: '',
@@ -136,7 +136,7 @@ function AdvancedClassroom(){
       'county': body.country,
       'state': body.state,
       'minFacultyInfectious' : parseFloat(body.minFacultyInfectious),
-      'maxFacultyInfectioous': parseFloat(body.maxFacultyInfectioous),
+      'maxFacultyInfectious': parseFloat(body.maxFacultyInfectious),
       'minStudentInfectious': parseFloat(body.minStudentInfectious),
       'maxStudentInfection': parseFloat(body.maxStudentInfection),
       'minMaskEffExhalation': parseFloat(body.minMaskEffExhalation),
@@ -160,9 +160,6 @@ function AdvancedClassroom(){
       'meanStudentQuantaE': parseFloat(body.meanStudentQuantaE),
       'sdStudentQuantaE': parseFloat(body.sdStudentQuantaE)
     };
-
-    // // TODO: Somehow carry this data to the next page/function and send data to python backend
-    // console.log(body);
 
     const response = await fetch('/api/classroombasic', {
       body: JSON.stringify(inputs), // body data type must match "Content-Type" header
