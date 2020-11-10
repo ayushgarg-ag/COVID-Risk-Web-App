@@ -17,6 +17,8 @@ function Results(){
     const [probStudent50, setProbStudent50] = useState(0.34);
     const [probStudent75, setProbStudent75] = useState(0.82);
     const [probStudent95, setProbStudent95] = useState(3.17);
+    const [facultyInfectious, setFacultyInfectious] = useState(.1);
+    const [studentInfectious, setStudentInfectious] = useState(.1);
 
     const parseValue = (value) => {
         return parseFloat(value).toFixed(2);
@@ -82,6 +84,8 @@ function Results(){
             setProbStudent50(parseValue(result.probStudent50));
             setProbStudent75(parseValue(result.probStudent75));
             setProbStudent95(parseValue(result.probStudent95));
+            setFacultyInfectious(parseFloat(result.facultyInfectious).toFixed(5));
+            setStudentInfectious(parseFloat(result.studentInfectious).toFixed(5));
 
             setLoading(false);
         };
@@ -102,7 +106,7 @@ function Results(){
                         <h1 className="best-estimate">{percentFaculty}%</h1>
                         <div className="infobox">
                             <h1 className="info-title">FACULTY</h1>
-                            <p className="info-p">The chance of a faculty member being infected is <strong className="estimate-text">VERY LOW</strong></p>
+                            <p className="info-p">The faculty infectious rate in the specified community is {facultyInfectious}%</p>
                             <p className="info-p"><strong>However,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
                         </div>
                     </div>
@@ -123,7 +127,7 @@ function Results(){
                         <h1 className="best-estimate">{percentStudent}%</h1>
                         <div className="infobox">
                             <h1 className="info-title">STUDENTS</h1>
-                            <p className="info-p">The chance of a student being infected is <strong className="estimate-text">VERY LOW</strong></p>
+                            <p className="info-p">The student infectious rate in the specified community is {studentInfectious}%</p>
                             <p className="info-p"><strong>However,</strong> this does <strong>NOT</strong> mean infection is impossible. Please continue to adhere to COVID-19 precaution guidelines.</p>
                         </div>
                     </div>
@@ -138,6 +142,9 @@ function Results(){
                         <br></br>
                     </div>
                 </div>
+                <a className='button-holder' id='link' href="/calculate-home">
+                    <button className="update-button"><strong>Update Calculation</strong></button>
+                </a>      
             </nav>
         )
     }
