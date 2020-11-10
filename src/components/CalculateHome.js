@@ -78,12 +78,6 @@ export default class CalculateHome extends React.Component{
                     <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderAdvancedTooltip}>
                     <BsFillQuestionCircleFill variant="success" />
                     </OverlayTrigger>
-                    <a href="/single-classroom">
-                        <button className="btn btn-secondary">COMBINED:PROTOTYPE</button>
-                    </a>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderBasicTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger>
                 </nav>
             }
             else if (isDiningSelected) {
