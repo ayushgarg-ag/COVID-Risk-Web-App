@@ -1,6 +1,7 @@
 import json
 from calculation import calculate
 from flask import Flask, request, render_template, jsonify
+import time
 app = Flask(__name__)
 
 studentNum = None
@@ -33,10 +34,12 @@ def formdata():
         county = content['county']
         state = content['state']
 
+        start_time = time.time()
         studentNum, facultyNum, studentResults, facultyResults = calculate(
             numFaculty, numStudents, numSessions, durationSessions)
         # while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
         #     pass
+        print(time.time() - start_time)
 
         return jsonify({})
     else:

@@ -132,7 +132,7 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions):
         return ps
 
 
-    trials = 100000
+    trials = 10000
     fac_runs = [0] * trials
     student_runs = [0] * trials
     for x in range(trials):
