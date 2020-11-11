@@ -16,11 +16,15 @@ def getCountyCases(county, state):
     response = requests.get(URL)
 
     csv_reader = csv.reader(response.text.strip().split('\n'), delimiter=',')
+    casesYesterday = None
 
     for row in csv_reader:
         if row[1] == county:
             if row[2] == state:
                 casesYesterday = row[7]
+
+    if casesYesterday == None:
+        return [0.7, 1.4, 0]
 
     oneWeek = date.today() - timedelta(days = 8) # 7 days from yesterday
     month = '{:02d}'.format(oneWeek.month)
@@ -41,8 +45,6 @@ def getCountyCases(county, state):
 
     newCasesOneWeek = float(casesYesterday) - float(casesOneWeek)
 
-    #print(casesYesterday, casesOneWeek, newCasesOneWeek)
-
     county = county + " County"
     population = 1
     with open('US_Counties_by_Population.csv') as csv_file:
@@ -59,7 +61,6 @@ def getCountyCases(county, state):
     infRateLow = newCasesOneWeek/population
     infRateHigh = infRateLow * 2
 
-    #print(infRateLow, infRateHigh)
     return [infRateLow, infRateHigh, 0]
 
-print(getCountyCases("Durham", "North Carolina"))
+# print(getCountyCases("Durham", "North Carolina"))
