@@ -21,11 +21,11 @@ import './CustomSlider.css';
 class CustomSlider extends React.Component{
     constructor(props){
         super(props);
-    
+        console.log(props)
         this.state = {
             lvalue: parseFloat(this.props.defaultLeft), //this value holds the MIN input value (to be used for back-end)
             rvalue: parseFloat(this.props.defaultRight), //this value holds the MAX input value
-            _step: parseFloat(this.props.step_count)
+            _step: parseFloat(this.props.step_count),
         }
 
         this.leftInputUpdated = this.leftInputUpdated.bind(this);
@@ -43,6 +43,9 @@ class CustomSlider extends React.Component{
         targetValue = Math.max(targetValue, this.state.lvalue + this.state._step);
 
         this.setState({ rvalue: targetValue });
+        // this.props.defaultRight = ""+this.state.rvalue;
+        // console.log(this.state.rvalue);
+        // console.log(this.props.defaultRight);
     }
 
     calcPercent(targetValue){
@@ -52,31 +55,33 @@ class CustomSlider extends React.Component{
     roundValue(targetValue){
         return Math.round(targetValue * 1000) / 1000;
     }
-    
+
     render(){
         const rangeStyle = {
             left: this.calcPercent(this.state.lvalue) + '%',
-            right: (100 - this.calcPercent(this.state.rvalue)) + '%' 
+            right: (100 - this.calcPercent(this.state.rvalue)) + '%'
         };
 
         return(
-            <div id="frame" className={this.props._className}>
+            <div id="frame" className={this.props.className}>
                 <input
-                    className='input-left'
+                    className={this.props.className}
                     type='range'
                     min={this.props.min}
                     max={this.props.max}
                     step={this.props.step_count}
                     value={this.state.lvalue}
-                    onInput={this.leftInputUpdated}/>
+                    onInput={this.leftInputUpdated}
+                    onChange={this.props.changeLeft}/>
                 <input
-                    className='input-right'
+                    className={this.props.className}
                     type='range'
                     min={this.props.min}
                     max={this.props.max}
                     step={this.props.step_count}
                     value={this.state.rvalue}
-                    onInput={this.rightInputUpdated}/>
+                    onInput={this.rightInputUpdated}
+                    onChange={this.props.changeRight}/>
                 <div className='bar'>
                     <div className='track'/>
                     <div className='range'
