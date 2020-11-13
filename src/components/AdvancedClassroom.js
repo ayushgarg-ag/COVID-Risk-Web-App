@@ -159,9 +159,6 @@ function AdvancedClassroom(){
       'sdStudentQuantaE': parseFloat(body.sdStudentQuantaE)
     };
 
-    // // TODO: Somehow carry this data to the next page/function and send data to python backend
-    // console.log(inputs);
-
     const response = await fetch('/api/classroombasic', {
       body: JSON.stringify(inputs), // body data type must match "Content-Type" header
       method: 'POST',

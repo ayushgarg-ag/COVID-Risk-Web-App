@@ -3,29 +3,25 @@ import pandas as pd
 import math
 from getCountyCases import getCountyCases
 import statistics
-import time
 
 e = math.e
 
 
-def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloorArea, classHeight, county, state, infectionRate):
+def calculate(numFaculty, numStudents, numSessions, durationSessions, minFacultyInfectious, maxFacultyInfectious, minStudentInfectious, maxStudentInfectious, minMaskEffExhalation, maxMaskEffExhalation):
+
+    floor_area = 900
+    height = 10
+    volume = floor_area*height*(0.305**3)
+
     num_faculty = numFaculty
     num_students = numStudents
     num_class_periods = numSessions
     duration = durationSessions/60
-    floor_area = classFloorArea
-    height = classHeight
-    volume = floor_area*height*(0.305**3)
-    county = county
-    state = state
 
-    # Default Values:
     # num_faculty = 1
     # num_students = 10
     # duration = 75/60
     # num_class_periods = 26
-    # floor_area = 900
-    # height = 10
 
     ventilation_w_outside_air = [1, 4, 1]
     decay_rate_of_virus = [0, 1.0, 1]
@@ -38,12 +34,10 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
     inhalation_rate_faculty = [0.005, 0.01, 1]
     inhalation_rate_student = [0.005, 0.007, 1]
 
-    if infectionRate != None:
-        percent_faculty_infectious = [infectionRate, infectionRate, 0]
-        percent_student_infectious = [infectionRate, infectionRate, 0]
-    else:
-        percent_faculty_infectious = getCountyCases(county, state)
-        percent_student_infectious = percent_faculty_infectious
+    county = "Durham"
+    state = "North Carolina"
+    percent_faculty_infectious = getCountyCases(county, state)
+    percent_student_infectious = getCountyCases(county, state)
 
     ############################
 
@@ -137,9 +131,9 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
         ps = 1-(1-p1_s)**n_c
         return ps
 
-    trials = 10000
-    fac_runs = np.zeros(trials)
-    student_runs = np.zeros(trials)
+    trials = 100000
+    fac_runs = [0] * trials
+    student_runs = [0] * trials
     for x in range(trials):
         randomizeAll()
 
@@ -147,7 +141,7 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
                                                                                       decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
         #print("cf: ", cf)
         cs = calc_Cs(quanta_emission_rate_student[2], exhalation_mask_efficiency[2], (ventilation_w_outside_air[2] +
-                                                                                    decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
+                                                                                      decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
         #print("cs: ", cs)
         Nfs = calc_Nfs(
             cf, inhalation_rate_student[2]*60, inhalation_mask_efficiency[2], duration)
@@ -203,4 +197,4 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
                       'fac_quants_75': round(fac_quants_75*100, 2),
                       'fac_quants_95': round(fac_quants_95*100, 2)}
 
-    return (student_mean, fac_mean, studentResults, facultyResults, percent_faculty_infectious, percent_student_infectious)
+    return (student_mean, fac_mean, studentResults, facultyResults)

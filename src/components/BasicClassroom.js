@@ -11,19 +11,21 @@ import './Classroom.css';
 
 function BasicClassroom(){
     const [body, setBody] = useState({
-      numFaculty: 1,
-      numStudents: '',
-      numSessions: '',
-      durationSessions: '',
-      classFloorArea: '',
-      classHeight: '',
-      county: '',
-      state: '',
-      masks:'1'
+      numFaculty: localStorage.getItem("numFaculty") || 1,
+      numStudents: localStorage.getItem("numStudents") || '',
+      numSessions: localStorage.getItem("numSessions") || '',
+      durationSessions: localStorage.getItem("durationSessions") || '',
+      classFloorArea: localStorage.getItem("classFloorArea") || '',
+      classHeight: localStorage.getItem("classHeight") || '',
+      county: localStorage.getItem("county") || '',
+      state: localStorage.getItem("state") || '',
+      masks: localStorage.getItem("masks") || '1',
+      infectionRate: localStorage.getItem("infectionRate") || ''
     });
 
     function changeBodyInfo(e) {
       setBody({...body, [e.target.className]:e.target.value})
+      localStorage.setItem(e.target.className, e.target.value)
     }
 
     async function calculate() {
@@ -36,7 +38,8 @@ function BasicClassroom(){
         'classHeight': parseFloat(body.classHeight),
         'county': body.county,
         'state': body.state,
-        'masks': parseInt(body.masks)
+        'masks': parseInt(body.masks),
+        'infectionRate': parseFloat(body.infectionRate)
       };
 
       const response = await fetch('/api/classroombasic', {
@@ -47,8 +50,9 @@ function BasicClassroom(){
         },
       });
       const result = await response.json();
-      console.log(result);
+      console.log(result);      
     }
+
     return(
         <div className="left-layout">
           <div className='basic-frame'>
@@ -75,12 +79,15 @@ function BasicClassroom(){
                   </div>
                   <div className='input-line'>
                       <p className='parameter-basic'>Classroom floor area (sq. ft)?</p>
-                      <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo}/>
+                      <input type = "number" className = "classFloorArea" value = {body.classFloorArea} onChange = {changeBodyInfo} placeholder={900}/>
                   </div>
                   <div className='input-line'>
                       <p className='parameter-basic'>Classroom Height (ft)?</p>
-                      <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo}/>
+                      <input type = "number" className = "classHeight" value = {body.classHeight} onChange = {changeBodyInfo} placeholder={10}/>
                   </div>
+                <div className='input-line'>
+                  <p>--------------------------------------------------------------------</p>
+                </div>
                   <div className='input-line'>
                       <p className='parameter-basic'>County</p>
                       <input type = "text" className = "county" value = {body.county} onChange = {changeBodyInfo}/>
@@ -89,6 +96,14 @@ function BasicClassroom(){
                       <p className='parameter-basic'>State</p>
                       <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
                   </div>
+                  <div className='input-line'>
+                    <p>OR</p>
+                  </div>
+                  <div className='input-line'>
+                    <p className='parameter-basic'>Infection Rate (%)</p>
+                    <input type="text" className="infectionRate" value={body.infectionRate} onChange={changeBodyInfo} />
+                  </div>
+
                   <div className='input-line'>
                     <div>
                       <p className='parameter-basic'>Is everyone wearing masks?</p>
@@ -102,9 +117,9 @@ function BasicClassroom(){
                   </div>
                   <br/>
                 </div>
-                <a className='button-holder' href="/results">
-                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
-                </a>
+                <a className='button-holder' id='link' href="/results">
+                    <button id="calc" className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
+                </a>                
             </div>
         </div>
     )
