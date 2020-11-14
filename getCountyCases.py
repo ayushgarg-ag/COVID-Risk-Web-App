@@ -14,7 +14,9 @@ def getCountyCases(county, state):
     URL = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/' + str(month) + '-' + str(day) + '-' + str(year) + '.csv'
 
     response = requests.get(URL)
-
+    if response.status_code == 404:
+        return [0.7, 1.4, 0]
+    
     csv_reader = csv.reader(response.text.strip().split('\n'), delimiter=',')
     casesYesterday = None
 
@@ -22,6 +24,8 @@ def getCountyCases(county, state):
         if row[1] == county:
             if row[2] == state:
                 casesYesterday = row[7]
+
+    print(casesYesterday)
 
     if casesYesterday == None:
         return [0.7, 1.4, 0]

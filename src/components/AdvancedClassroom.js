@@ -88,32 +88,34 @@ function renderQuantaEmissionTooltip(props) {
 
 function AdvancedClassroom(){
     const [body, setBody] = useState({
-      numFaculty: 1,
-      numStudents: '',
-      numSessions: '',
-      durationSessions: '',
-      classFloorArea: '',
-      classHeight: '',
-      county: '',
-      state: '',
-      facultyInfectious: [0.7,1.4],
-      studentInfectious: [0.7,1.4],
-      maskEffExhalation: [40,60],
-      maskEffInhalation: [30,50],
-      ventilationRate: [1,4],
-      addlControl: [0,100],
-      decayRate: [0,1],
-      depositionRate: [0.3,1.5],
-      facultyInhalation: [0.005,0.010],
-      studentInhalation: [0.005,0.007],
-      meanFacultyQuantaE: '',
-      sdFacultyQuantaE: '',
-      meanStudentQuantaE: '',
-      sdStudentQuantaE: ''
+        numFaculty: localStorage.getItem("numFaculty") || 1,
+        numStudents: localStorage.getItem("numStudents") || '',
+        numSessions: localStorage.getItem("numSessions") || '',
+        durationSessions: localStorage.getItem("durationSessions") || '',
+        classFloorArea: localStorage.getItem("classFloorArea") || '',
+        classHeight: localStorage.getItem("classHeight") || '',
+        county: localStorage.getItem("county") || '',
+        state: localStorage.getItem("state") || '',
+        masks: localStorage.getItem("masks") || '1',
+        facultyInfectious: [0.7,1.4],
+        studentInfectious: [0.7,1.4],
+        maskEffExhalation: [40,60],
+        maskEffInhalation: [30,50],
+        ventilationRate: [1,4],
+        addlControl: [0,0],
+        decayRate: [0,1.0],
+        depositionRate: [0.3,1.5],
+        facultyInhalation: [0.005,0.010],
+        studentInhalation: [0.005,0.007],
+        meanFacultyQuantaE: 1.5,
+        sdFacultyQuantaE: 0.71,
+        meanStudentQuantaE: 0.69,
+        sdStudentQuantaE: 0.71
     });
 
     function changeBodyInfo(e) {
       setBody({...body, [e.target.className]:e.target.value})
+      localStorage.setItem(e.target.className, e.target.value)
     }
     function changeLeft(e){
       var className = e.target.className
@@ -124,43 +126,33 @@ function AdvancedClassroom(){
       setBody({...body, [className]:[body[className][0], parseFloat(e.target.value)]})
     }
   async function calculate() {
-    var inputs = {
-      'numFaculty': parseInt(body.numFaculty),
-      'numStudents': parseInt(body.numStudents),
-      'numSessions': parseInt(body.numSessions),
-      'durationSessions': parseFloat(body.durationSessions),
-      'classFloorArea': parseFloat(body.classFloorArea),
-      'classHeight': parseFloat(body.classHeight),
-      'county': body.country,
-      'state': body.state,
-      'minFacultyInfectious' : parseFloat(body.facultyInfectious[0]),
-      'maxFacultyInfectious': parseFloat(body.facultyInfectious[1]),
-      'minStudentInfectious': parseFloat(body.studentInfectious[0]),
-      'maxStudentInfection': parseFloat(body.studentInfectious[1]),
-      'minMaskEffExhalation': parseFloat(body.maskEffExhalation[0]),
-      'maxMaskEffExhalation': parseFloat(body.maskEffExhalation[1]),
-      'minMaskEffInhalation': parseFloat(body.maskEffInhalation[0]),
-      'maxMaskEffInhalation': parseFloat(body.maskEffInhalation[1]),
-      'minVentilationRate': parseFloat(body.ventilationRate[0]),
-      'maxVentilationRate': parseFloat(body.ventilationRate[1]),
-      'minAddlControl': parseFloat(body.addlControl[0]),
-      'maxAddlControl': parseFloat(body.addlControl[1]),
-      'minDecayRate': parseFloat(body.decayRate[0]),
-      'maxDecayRate': parseFloat(body.decayRate[1]),
-      'minDepositionRate': parseFloat(body.depositionRate[0]),
-      'maxDepositionRate': parseFloat(body.depositionRate[1]),
-      'minFacultyInhalation': parseFloat(body.facultyInhalation[0]),
-      'maxFacultyInhalation': parseFloat(body.facultyInhalation[1]),
-      'minStudentInhalation': parseFloat(body.studentInhalation[0]),
-      'maxStudentInhalation': parseFloat(body.studentInhalation[1]),
-      'meanFacultyQuantaE': parseFloat(body.meanFacultyQuantaE),
-      'sdFacultyQuantaE': parseFloat(body.sdFacultyQuantaE),
-      'meanStudentQuantaE': parseFloat(body.meanStudentQuantaE),
-      'sdStudentQuantaE': parseFloat(body.sdStudentQuantaE)
-    };
+    // var inputs = {
+    //     'numFaculty': parseInt(body.numFaculty),
+    //     'numStudents': parseInt(body.numStudents),
+    //     'numSessions': parseInt(body.numSessions),
+    //     'durationSessions': parseFloat(body.durationSessions),
+    //     'classFloorArea': parseFloat(body.classFloorArea),
+    //     'classHeight': parseFloat(body.classHeight),
+    //     'county': body.country,
+    //     'state': body.state,
+    //     'facultyInfectious': [parseFloat(body.facultyInfectious[0]), parseFloat(body.facultyInfectious[1])],
+    //     'studentInfectious': [parseFloat(body.studentInfectious[0]), parseFloat(body.studentInfectious[1])],
+    //     'maskEffExhalation': [parseFloat(body.maskEffExhalation[0]), parseFloat(body.maskEffExhalation[1])],
+    //     'maskEffInhalation': [parseFloat(body.maskEffInhalation[0]), parseFloat(body.maskEffInhalation[1])],
+    //     'ventilationRate': [parseFloat(body.ventilationRate[0]), parseFloat(body.ventilationRate[1])],
+    //     'addlControl': [parseFloat(body.addlControl[0]), parseFloat(body.addlControl[1])],
+    //     'decayRate': [parseFloat(body.decayRate[0]), parseFloat(body.decayRate[1])],
+    //     'depositionRate': [parseFloat(body.depositionRate[0]), parseFloat(body.depositionRate[1])],
+    //     'facultyInhalation': [parseFloat(body.facultyInhalation[0]), parseFloat(body.facultyInhalation[1])],
+    //     'studentInhalation': [parseFloat(body.studentInhalation[0]), parseFloat(body.studentInhalation[1])],
+    //     'meanFacultyQuantaE': parseFloat(body.meanFacultyQuantaE),
+    //     'sdFacultyQuantaE': parseFloat(body.sdFacultyQuantaE),
+    //     'meanStudentQuantaE': parseFloat(body.meanStudentQuantaE),
+    //     'sdStudentQuantaE': parseFloat(body.sdStudentQuantaE)
+    // };
 
-    const response = await fetch('/api/classroombasic', {
-      body: JSON.stringify(inputs), // body data type must match "Content-Type" header
+    const response = await fetch('/api/classroomadvanced', {
+      body: JSON.stringify(body), // body data type must match "Content-Type" header
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -209,6 +201,17 @@ function AdvancedClassroom(){
                       <p className='parameter-basic'>State</p>
                       <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
                   </div>
+                    <div className='input-line'>
+                        <div>
+                            <p className='parameter-basic'>Is everyone wearing masks?</p>
+                        </div>
+                        <div>
+                            <input type="radio" id="yes" name="masks" className="masks" value="1" onChange={changeBodyInfo} defaultChecked />
+                            <label className="maskLabel" htmlFor="yes">Yes</label>
+                            <input type="radio" id="no" name="masks" className="masks" value="0" onChange={changeBodyInfo} />
+                            <label className="maskLabel" htmlFor="no">No</label>
+                        </div>
+                    </div>
                   <br/>
                 </div>
             </div>
@@ -353,8 +356,9 @@ function AdvancedClassroom(){
                     </div>
                     <br/>
                 </div>
-                <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
-
+                <a className='button-holder' id='link' href="/results">
+                    <button id="calc" className="calc-button" onClick={calculate}><strong>CALCULATE</strong></button>
+                </a>  
             </div>
         </div>
     )
