@@ -8,7 +8,7 @@ import time
 e = math.e
 
 
-def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloorArea, classHeight, county, state, infectionRate):
+def calculateAdvanced(numFaculty, numStudents, numSessions, durationSessions, classFloorArea, classHeight, county, state, masks, facultyInfectious, studentInfectious, maskEffExhalation, maskEffInhalation, ventilationRate, addlControl, decayRate, depositionRate, facultyInhalation, studentInhalation, meanFacultyQuantaE, sdFacultyQuantaE, meanStudentQuantaE, sdStudentQuantaE):
     num_faculty = numFaculty
     num_students = numStudents
     num_class_periods = numSessions
@@ -19,13 +19,18 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
     county = county
     state = state
 
-    # Default Values:
-    # num_faculty = 1
-    # num_students = 10
-    # duration = 75/60
-    # num_class_periods = 26
-    # floor_area = 900
-    # height = 10
+    # ventilation_w_outside_air = [ventilationRate[0], ventilationRate[1], 1]
+    # decay_rate_of_virus = [decayRate[0], decayRate[1], 1]
+    # deposition_to_surface = [depositionRate[0], depositionRate[1], 1]
+    # additional_control_measures = [addlControl[0], addlControl[1], 1]
+    # quanta_emission_rate_faculty = [meanFacultyQuantaE, sdFacultyQuantaE, 1]
+    # quanta_emission_rate_student = [meanStudentQuantaE, sdStudentQuantaE, 1]
+    # exhalation_mask_efficiency = [maskEffExhalation[0]/100, maskEffExhalation[1]/100, 1]
+    # inhalation_mask_efficiency = [maskEffInhalation[0]/100, maskEffInhalation[1]/100, 1]
+    # inhalation_rate_faculty = [facultyInhalation[0], facultyInhalation[1], 1]
+    # inhalation_rate_student = [studentInhalation[0], studentInhalation[1], 1]
+    # percent_faculty_infectious = [facultyInfectious[0], facultyInfectious[1], 0]
+    # percent_student_infectious = [studentInfectious[0], studentInfectious[1], 0]
 
     ventilation_w_outside_air = [1, 4, 1]
     decay_rate_of_virus = [0, 1.0, 1]
@@ -37,13 +42,28 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
     inhalation_mask_efficiency = [0.3, 0.5, 1]
     inhalation_rate_faculty = [0.005, 0.01, 1]
     inhalation_rate_student = [0.005, 0.007, 1]
+    percent_faculty_infectious = [0.7, 1.4, 0]
+    percent_student_infectious = [0.7, 1.4, 0]
 
-    if infectionRate != None:
-        percent_faculty_infectious = [infectionRate, infectionRate, 0]
-        percent_student_infectious = [infectionRate, infectionRate, 0]
-    else:
-        percent_faculty_infectious = getCountyCases(county, state)
-        percent_student_infectious = percent_faculty_infectious
+    print(ventilation_w_outside_air)
+    print(decay_rate_of_virus)
+    print(deposition_to_surface)
+    print(additional_control_measures)
+    print(quanta_emission_rate_faculty)
+    print(quanta_emission_rate_student)
+    print(exhalation_mask_efficiency)
+    print(inhalation_mask_efficiency)
+    print(inhalation_rate_faculty)
+    print(inhalation_rate_student)
+    print(percent_faculty_infectious)
+    print(percent_student_infectious)
+
+    # if infectionRate != None:
+    #     percent_faculty_infectious = [infectionRate, infectionRate, 0]
+    #     percent_student_infectious = [infectionRate, infectionRate, 0]
+    # else:
+    #     percent_faculty_infectious = getCountyCases(county, state)
+    #     percent_student_infectious = percent_faculty_infectious
 
     ############################
 
@@ -147,7 +167,7 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
                                                                                       decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
         #print("cf: ", cf)
         cs = calc_Cs(quanta_emission_rate_student[2], exhalation_mask_efficiency[2], (ventilation_w_outside_air[2] +
-                                                                                    decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
+                                                                                      decay_rate_of_virus[2]+deposition_to_surface[2]+additional_control_measures[2]), volume, duration)
         #print("cs: ", cs)
         Nfs = calc_Nfs(
             cf, inhalation_rate_student[2]*60, inhalation_mask_efficiency[2], duration)
