@@ -219,4 +219,4 @@ def calculateAdvanced(numFaculty, numStudents, numSessions, durationSessions, cl
                       'fac_quants_75': round(fac_quants_75*100, 2),
                       'fac_quants_95': round(fac_quants_95*100, 2)}
 
-    return (student_mean, fac_mean, studentResults, facultyResults, percent_faculty_infectious, percent_student_infectious)
+    return (student_mean, fac_mean, studentResults, facultyResults, percent_faculty_infectious*100, percent_student_infectious*100)
