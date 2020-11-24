@@ -4,7 +4,7 @@ import { useInterval } from "./useInterval";
 import GaugeChart from 'react-gauge-chart'
 
 const chartStyle = {
-    height: 250,
+    // height: 250
 }
 
 function Results(){
@@ -117,7 +117,7 @@ function Results(){
     }
     else {
         return(
-            
+            <nav>
             <nav className="results">
                 <div className="info-container">
                     <div className="infobar">
@@ -130,10 +130,10 @@ function Results(){
                     </div>
                     <div className="breakdown">
                         <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
-                        <div>
+                        <div className="breakdown-gauge">
                             <GaugeChart id="gauge-chart1"
                             nrOfLevels={20} 
-                            percent={getScaleValue(facultyInfectious * 0.01)} 
+                            percent={getScaleValue(percentFaculty * 0.01)} 
                             style={chartStyle}
                             // arcsLength={[0.01, 0.1, 0.21]}
                             textColor="000000"
@@ -161,10 +161,10 @@ function Results(){
                     </div>
                     <div className="breakdown">
                         <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
-                        <div>
+                        <div className="breakdown-gauge">
                             <GaugeChart id="gauge-chart2"
                             nrOfLevels={20} 
-                            percent={getScaleValue(studentInfectious * 0.01)} 
+                            percent={getScaleValue(percentStudent * 0.01)} 
                             style={chartStyle}
                             // arcsLength={[0.01, 0.1, 0.21]}
                             textColor="000000"
@@ -180,10 +180,14 @@ function Results(){
                         <br></br>
                     </div>
                 </div>
-                <a className='button-holder' id='link' href="/calculate-home">
-                    <button className="update-button"><strong>Update Calculation</strong></button>
-                </a>      
+                {/* <a className='button-holder' id='link' href="/calculate-home">
+                    <button className="btn btn-primary"><strong>Update Calculation</strong></button>
+                </a> */}
             </nav>
+            <a className='button-holder' id='link' href="/calculate-home">
+            <button className="btn btn-primary"><strong>Update Calculation</strong></button>
+        </a>
+        </nav>
         )
     }
 }
