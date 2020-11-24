@@ -3,7 +3,6 @@ import pandas as pd
 import math
 from getCountyCases import getCountyCases
 import statistics
-import time
 
 e = math.e
 
@@ -39,8 +38,8 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
     inhalation_rate_student = [0.005, 0.007, 1]
 
     if infectionRate != None:
-        percent_faculty_infectious = [infectionRate, infectionRate, 0]
-        percent_student_infectious = [infectionRate, infectionRate, 0]
+        percent_faculty_infectious = [infectionRate/100, 2*(infectionRate/100), 0]
+        percent_student_infectious = [infectionRate/100, 2*(infectionRate/100), 0]
     else:
         percent_faculty_infectious = getCountyCases(county, state)
         percent_student_infectious = percent_faculty_infectious
@@ -203,4 +202,8 @@ def calculate(numFaculty, numStudents, numSessions, durationSessions, classFloor
                       'fac_quants_75': round(fac_quants_75*100, 2),
                       'fac_quants_95': round(fac_quants_95*100, 2)}
 
-    return (student_mean, fac_mean, studentResults, facultyResults, percent_faculty_infectious*100, percent_student_infectious*100)
+
+    percent_faculty_infectious = [percent_faculty_infectious[0]*100, percent_faculty_infectious[1]*100, 0]
+    percent_student_infectious = [percent_student_infectious[0]*100, percent_student_infectious[1]*100, 0]
+
+    return (student_mean, fac_mean, studentResults, facultyResults, percent_faculty_infectious, percent_student_infectious)

@@ -25,8 +25,6 @@ def getCountyCases(county, state):
             if row[2] == state:
                 casesYesterday = row[7]
 
-    print(casesYesterday)
-
     if casesYesterday == None:
         return [0.007, .014, 0]
 
@@ -67,4 +65,4 @@ def getCountyCases(county, state):
 
     return [infRateLow, infRateHigh, 0]
 
-print(getCountyCases("Durham", "North Carolina"))
+# print(getCountyCases("Durham", "North Carolina"))

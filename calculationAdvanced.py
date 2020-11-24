@@ -3,7 +3,6 @@ import pandas as pd
 import math
 from getCountyCases import getCountyCases
 import statistics
-import time
 
 e = math.e
 
@@ -218,5 +217,10 @@ def calculateAdvanced(numFaculty, numStudents, numSessions, durationSessions, cl
                       'fac_quants_50': round(fac_quants_50*100, 2),
                       'fac_quants_75': round(fac_quants_75*100, 2),
                       'fac_quants_95': round(fac_quants_95*100, 2)}
+
+    percent_faculty_infectious = [
+        percent_faculty_infectious[0]*100, percent_faculty_infectious[1]*100, 0]
+    percent_student_infectious = [
+        percent_student_infectious[0]*100, percent_student_infectious[1]*100, 0]
 
     return (student_mean, fac_mean, studentResults, facultyResults, percent_faculty_infectious*100, percent_student_infectious*100)

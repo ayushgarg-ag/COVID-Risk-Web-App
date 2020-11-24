@@ -1,8 +1,9 @@
 import json
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
-from flask import Flask, request, render_template, jsonify
-app = Flask(__name__)
+from flask import Flask, request, jsonify
+# app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 
 studentInfectious = None
 facultyInfectious = None
@@ -10,6 +11,16 @@ studentNum = None
 facultyNum = None
 studentResults = None
 facultyResults = None
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
@@ -90,8 +101,6 @@ def formdataadvanced():
         content = request.data.decode()
         content = json.loads(content)
 
-        print(content)
-
         numFaculty = int(content['numFaculty'])
         numStudents = int(content['numStudents'])
         numSessions = int(content['numSessions'])
@@ -147,5 +156,8 @@ def formdataadvanced():
         }
         return jsonify(results)
 
-if __name__ == '__main__':
-    app.run(host="localhost", port=5000, debug=True)
+
+# if __name__ == '__main__':
+#     app.run(host="localhost", port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
