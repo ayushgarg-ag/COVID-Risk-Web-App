@@ -1,1 +1,1 @@
-web: gunicorn app:covid-frontend
+web: gunicorn gettingstarted.wsgi --log-file -
