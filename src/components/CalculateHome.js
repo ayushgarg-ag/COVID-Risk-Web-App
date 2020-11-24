@@ -7,10 +7,10 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 function renderBasicTooltip(props) {
-    return <Tooltip {...props}>The basic assessment is best for...</Tooltip>;
+    return <Tooltip {...props}>The basic assessment is best for most users.</Tooltip>;
 }
 function renderAdvancedTooltip(props) {
-    return <Tooltip {...props}>The advanced assessment is best for...</Tooltip>;
+    return <Tooltip {...props}>The advanced assessment is best for users who want to input more specific values.</Tooltip>;
 }
 
 export default class CalculateHome extends React.Component{
@@ -78,12 +78,6 @@ export default class CalculateHome extends React.Component{
                     <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderAdvancedTooltip}>
                     <BsFillQuestionCircleFill variant="success" />
                     </OverlayTrigger>
-                    <a href="/single-classroom">
-                        <button className="btn btn-secondary">COMBINED:PROTOTYPE</button>
-                    </a>
-                    <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderBasicTooltip}>
-                    <BsFillQuestionCircleFill variant="success" />
-                    </OverlayTrigger>
                 </nav>
             }
             else if (isDiningSelected) {
@@ -133,8 +127,8 @@ export default class CalculateHome extends React.Component{
             divBody = 
             <nav>
                 <button id="classroom-button" className="btn btn-secondary" onClick={this.setClassroomSelected}><b>CLASSROOM</b></button>
-                <button id="dining-button" className="btn btn-secondary" onClick={this.setDiningSelected}><b>DINING AREA</b></button>
-                <button id="commonroom-button" className="btn btn-secondary" onClick={this.setCommonRoomSelected}><b>COMMON ROOM</b></button> 
+                {/* <button id="dining-button" className="btn btn-secondary" onClick={this.setDiningSelected}><b>DINING AREA</b></button> */}
+                {/* <button id="commonroom-button" className="btn btn-secondary" onClick={this.setCommonRoomSelected}><b>COMMON ROOM</b></button>  */}
             </nav>
         }
     return(

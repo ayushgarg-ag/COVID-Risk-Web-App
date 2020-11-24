@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Results.css';
+import GaugeChart from 'react-gauge-chart'
+
+const chartStyle = {
+    // height: 250
+}
 
 function Results(){
     const [loading, setLoading] = useState(true);
@@ -22,6 +27,20 @@ function Results(){
 
     const parseValue = (value) => {
         return parseFloat(value).toFixed(2);
+    }
+    
+    const getScaleValue = (value) => {
+        var scaleValue = 0
+        if (value <= .01) {
+            scaleValue = (value / 0.01) * 0.33
+        }
+        if (value > .01 & value <= 0.1) {
+            scaleValue = (((value / 0.1) * 0.33) + 0.33)
+        }
+        if (value > 0.1) {
+            scaleValue = ((value * 0.33) + 0.66)
+        }
+        return scaleValue
     }
 
     useEffect(() => {
@@ -64,7 +83,7 @@ function Results(){
     }
     else {
         return(
-            
+            <nav>
             <nav className="results">
                 <div className="info-container">
                     <div className="infobar">
@@ -77,6 +96,16 @@ function Results(){
                     </div>
                     <div className="breakdown">
                         <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
+                        <div className="breakdown-gauge">
+                            <GaugeChart id="gauge-chart1"
+                            nrOfLevels={20} 
+                            percent={getScaleValue(percentFaculty * 0.01)} 
+                            style={chartStyle}
+                            // arcsLength={[0.01, 0.1, 0.21]}
+                            textColor="000000"
+                            hideText="true"
+                            />
+                        </div>
                         <p>While our best estimate for the infection probability is <strong className="estimate-text">{percentFaculty}%,</strong> please note that this is still an approximation. However...</p>
                         <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is at least less than <strong className="orange-text">{probFaculty95}%</strong></p>
                         <p className="confidence-p"><strong>75%</strong> confident: less than <strong className="orange-text">{probFaculty75}%</strong></p>
@@ -98,6 +127,16 @@ function Results(){
                     </div>
                     <div className="breakdown">
                         <h1 className="breakdown-title">STATISTICAL BREAKDOWN</h1>
+                        <div className="breakdown-gauge">
+                            <GaugeChart id="gauge-chart2"
+                            nrOfLevels={20} 
+                            percent={getScaleValue(percentStudent * 0.01)} 
+                            style={chartStyle}
+                            // arcsLength={[0.01, 0.1, 0.21]}
+                            textColor="000000"
+                            hideText="true"
+                            />
+                        </div>
                         <p>While our best estimate for the infection probability is <strong className="estimate-text">{percentStudent}%,</strong> please note that this is still an approximation. However...</p>
                         <p className="confidence-p">We are <strong>95%</strong> confident that the infection probability is at least less than <strong className="orange-text">{probStudent95}%</strong></p>
                         <p className="confidence-p"><strong>75%</strong> confident: less than <strong className="orange-text">{probStudent75}%</strong></p>
@@ -107,10 +146,14 @@ function Results(){
                         <br></br>
                     </div>
                 </div>
-                <a className='button-holder' id='link' href="/calculate-home">
-                    <button className="update-button"><strong>Update Calculation</strong></button>
-                </a>      
+                {/* <a className='button-holder' id='link' href="/calculate-home">
+                    <button className="btn btn-primary"><strong>Update Calculation</strong></button>
+                </a> */}
             </nav>
+            <a className='button-holder' id='link' href="/calculate-home">
+            <button className="btn btn-primary"><strong>Update Calculation</strong></button>
+        </a>
+        </nav>
         )
     }
 }
