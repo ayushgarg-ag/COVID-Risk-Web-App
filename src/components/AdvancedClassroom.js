@@ -6,7 +6,8 @@ import Tooltip from "react-bootstrap/Tooltip";
 import CustomSlider from './CustomSlider';
 
 function renderPercentageInfectiousTooltip(props) {
-  return <Tooltip {...props}>This depends on the state of the pandemic in a given region and time period, as well as the dynamics of the disease and its infectivity in different types of cases, which are not known very precisely. 
+  console.log(props)
+  return <Tooltip {...props}>This depends on the state of the pandemic in a given region and time period, as well as the dynamics of the disease and its infectivity in different types of cases, which are not known very precisely.
   <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A4" target="_blank" rel="noopener noreferrer">
     More information
   </a>
@@ -54,7 +55,7 @@ function renderDecayRateTooltip(props) {
 }
 
 function renderDepositionRateTooltip(props) {
-  return <Tooltip {...props}>An important uncertainty is the size range of the infective particles. Here we assume 1-5 um, based on our read of the literature. 
+  return <Tooltip {...props}>An important uncertainty is the size range of the infective particles. Here we assume 1-5 um, based on our read of the literature.
   <a href="https://docs.google.com/spreadsheets/d/1LS2f28meUwiy-AxGQXyd1ily9HPbh9hvYD48Qulaj6s/edit#gid=0&range=A95" target="_blank" rel="noopener noreferrer">
     More information
   </a>
@@ -87,82 +88,71 @@ function renderQuantaEmissionTooltip(props) {
 
 function AdvancedClassroom(){
     const [body, setBody] = useState({
-      numFaculty: 1,
-      numStudents: '',
-      numSessions: '',
-      durationSessions: '',
-      classFloorArea: '',
-      classHeight: '',
-      county: '',
-      state: '',
-      minFacultyInfectious: '',
-      maxFacultyInfectious: '',
-      minStudentInfectious: '',
-      maxStudentInfection: '',
-      minMaskEffExhalation: '',
-      maxMaskEffExhalation: '',
-      minMaskEffInhalation: '',
-      maxMaskEffInhalation: '',
-      minVentilationRate: '',
-      maxVentilationRate: '',
-      minAddlControl: '',
-      maxAddlControl: '',
-      minDecayRate: '',
-      maxDecayRate: '',
-      minDepositionRate: '',
-      maxDepositionRate: '',
-      minFacultyInhalation: '',
-      maxFacultyInhalation: '',
-      minStudentInhalation: '',
-      maxStudentInhalation: '',
-      meanFacultyQuantaE: '',
-      sdFacultyQuantaE: '',
-      meanStudentQuantaE: '',
-      sdStudentQuantaE: ''
+        numFaculty: localStorage.getItem("numFaculty") || 1,
+        numStudents: localStorage.getItem("numStudents") || '',
+        numSessions: localStorage.getItem("numSessions") || '',
+        durationSessions: localStorage.getItem("durationSessions") || '',
+        classFloorArea: localStorage.getItem("classFloorArea") || '',
+        classHeight: localStorage.getItem("classHeight") || '',
+        county: localStorage.getItem("county") || '',
+        state: localStorage.getItem("state") || '',
+        masks: localStorage.getItem("masks") || '1',
+        facultyInfectious: [0.7,1.4],
+        studentInfectious: [0.7,1.4],
+        maskEffExhalation: [40,60],
+        maskEffInhalation: [30,50],
+        ventilationRate: [1,4],
+        addlControl: [0,0],
+        decayRate: [0,1.0],
+        depositionRate: [0.3,1.5],
+        facultyInhalation: [0.005,0.010],
+        studentInhalation: [0.005,0.007],
+        meanFacultyQuantaE: 1.5,
+        sdFacultyQuantaE: 0.71,
+        meanStudentQuantaE: 0.69,
+        sdStudentQuantaE: 0.71
     });
 
     function changeBodyInfo(e) {
       setBody({...body, [e.target.className]:e.target.value})
+      localStorage.setItem(e.target.className, e.target.value)
     }
-
+    function changeLeft(e){
+      var className = e.target.className
+      setBody({...body, [className]:[parseFloat(e.target.value), body[className][1]]})
+    }
+    function changeRight(e){
+      var className = e.target.className
+      setBody({...body, [className]:[body[className][0], parseFloat(e.target.value)]})
+    }
   async function calculate() {
-    var inputs = {
-      'numFaculty': parseInt(body.numFaculty),
-      'numStudents': parseInt(body.numStudents),
-      'numSessions': parseInt(body.numSessions),
-      'durationSessions': parseFloat(body.durationSessions),
-      'classFloorArea': parseFloat(body.classFloorArea),
-      'classHeight': parseFloat(body.classHeight),
-      'county': body.country,
-      'state': body.state,
-      'minFacultyInfectious' : parseFloat(body.minFacultyInfectious),
-      'maxFacultyInfectious': parseFloat(body.maxFacultyInfectious),
-      'minStudentInfectious': parseFloat(body.minStudentInfectious),
-      'maxStudentInfection': parseFloat(body.maxStudentInfection),
-      'minMaskEffExhalation': parseFloat(body.minMaskEffExhalation),
-      'maxMaskEffExhalation': parseFloat(body.maxMaskEffExhalation),
-      'minMaskEffInhalation': parseFloat(body.minMaskEffInhalation),
-      'maxMaskEffInhalation': parseFloat(body.maxMaskEffInhalation),
-      'minVentilationRate': parseFloat(body.minVentilationRate),
-      'maxVentilationRate': parseFloat(body.maxVentilationRate),
-      'minAddlControl': parseFloat(body.minAddlControl),
-      'maxAddlControl': parseFloat(body.maxAddlControl),
-      'minDecayRate': parseFloat(body.minDecayRate),
-      'maxDecayRate': parseFloat(body.maxDecayRate),
-      'minDepositionRate': parseFloat(body.minDepositionRate),
-      'maxDepositionRate': parseFloat(body.maxDepositionRate),
-      'minFacultyInhalation': parseFloat(body.minFacultyInhalation),
-      'maxFacultyInhalation': parseFloat(body.maxFacultyInhalation),
-      'minStudentInhalation': parseFloat(body.minStudentInhalation),
-      'maxStudentInhalation': parseFloat(body.maxStudentInhalation),
-      'meanFacultyQuantaE': parseFloat(body.meanFacultyQuantaE),
-      'sdFacultyQuantaE': parseFloat(body.sdFacultyQuantaE),
-      'meanStudentQuantaE': parseFloat(body.meanStudentQuantaE),
-      'sdStudentQuantaE': parseFloat(body.sdStudentQuantaE)
-    };
+    // var inputs = {
+    //     'numFaculty': parseInt(body.numFaculty),
+    //     'numStudents': parseInt(body.numStudents),
+    //     'numSessions': parseInt(body.numSessions),
+    //     'durationSessions': parseFloat(body.durationSessions),
+    //     'classFloorArea': parseFloat(body.classFloorArea),
+    //     'classHeight': parseFloat(body.classHeight),
+    //     'county': body.country,
+    //     'state': body.state,
+    //     'facultyInfectious': [parseFloat(body.facultyInfectious[0]), parseFloat(body.facultyInfectious[1])],
+    //     'studentInfectious': [parseFloat(body.studentInfectious[0]), parseFloat(body.studentInfectious[1])],
+    //     'maskEffExhalation': [parseFloat(body.maskEffExhalation[0]), parseFloat(body.maskEffExhalation[1])],
+    //     'maskEffInhalation': [parseFloat(body.maskEffInhalation[0]), parseFloat(body.maskEffInhalation[1])],
+    //     'ventilationRate': [parseFloat(body.ventilationRate[0]), parseFloat(body.ventilationRate[1])],
+    //     'addlControl': [parseFloat(body.addlControl[0]), parseFloat(body.addlControl[1])],
+    //     'decayRate': [parseFloat(body.decayRate[0]), parseFloat(body.decayRate[1])],
+    //     'depositionRate': [parseFloat(body.depositionRate[0]), parseFloat(body.depositionRate[1])],
+    //     'facultyInhalation': [parseFloat(body.facultyInhalation[0]), parseFloat(body.facultyInhalation[1])],
+    //     'studentInhalation': [parseFloat(body.studentInhalation[0]), parseFloat(body.studentInhalation[1])],
+    //     'meanFacultyQuantaE': parseFloat(body.meanFacultyQuantaE),
+    //     'sdFacultyQuantaE': parseFloat(body.sdFacultyQuantaE),
+    //     'meanStudentQuantaE': parseFloat(body.meanStudentQuantaE),
+    //     'sdStudentQuantaE': parseFloat(body.sdStudentQuantaE)
+    // };
 
-    const response = await fetch('/api/classroombasic', {
-      body: JSON.stringify(inputs), // body data type must match "Content-Type" header
+    const response = await fetch('/api/classroomadvanced', {
+      body: JSON.stringify(body), // body data type must match "Content-Type" header
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -211,13 +201,24 @@ function AdvancedClassroom(){
                       <p className='parameter-basic'>State</p>
                       <input type = "text" className = "state" value = {body.state} onChange = {changeBodyInfo}/>
                   </div>
+                    <div className='input-line'>
+                        <div>
+                            <p className='parameter-basic'>Is everyone wearing masks?</p>
+                        </div>
+                        <div>
+                            <input type="radio" id="yes" name="masks" className="masks" value="1" onChange={changeBodyInfo} defaultChecked />
+                            <label className="maskLabel" htmlFor="yes">Yes</label>
+                            <input type="radio" id="no" name="masks" className="masks" value="0" onChange={changeBodyInfo} />
+                            <label className="maskLabel" htmlFor="no">No</label>
+                        </div>
+                    </div>
                   <br/>
                 </div>
             </div>
             <div className='advanced-frame'>
                 <div className='title-bar'>
                     <h1 className='title'>STEP 2: VARIABLE INPUTS</h1>
-                </div> 
+                </div>
                 <div className='box'>
                     <p className='directions'><strong>** The following are additional parameters that can be changed if a more detailed/custom calculation is desired **<br/><br/>These values are preset to default values and are not required to be modified for a simple basic calculation:</strong></p>
                     <div className='input-line'>
@@ -228,7 +229,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='10' step_count='0.1' defaultLeft='0.7' defaultRight='1.4'/>
+                            <CustomSlider className="facultyInfectious" min='0' max='10' step_count='0.1' defaultLeft={body.facultyInfectious[0]} defaultRight={body.facultyInfectious[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -239,7 +240,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='10' step_count='0.1' defaultLeft='0.7' defaultRight='1.4'/>
+                            <CustomSlider className="studentInfectious" min='0' max='10' step_count='0.1' defaultLeft={body.studentInfectious[0]} defaultRight={body.studentInfectious[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -250,7 +251,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='100' step_count='1' defaultLeft='40' defaultRight='60'/>
+                            <CustomSlider className="maskEffExhalation" min='0' max='100' step_count='1' defaultLeft={body.maskEffExhalation[0]} defaultRight={body.maskEffExhalation[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -261,7 +262,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='100' step_count='1' defaultLeft='30' defaultRight='50'/>
+                            <CustomSlider className="maskEffInhalation" min='0' max='100' step_count='1' defaultLeft={body.maskEffInhalation[0]} defaultRight={body.maskEffInhalation[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -272,7 +273,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='10' step_count='1' defaultLeft='1' defaultRight='4'/>
+                            <CustomSlider className="ventilationRate" min='0' max='10' step_count='1' defaultLeft={body.ventilationRate[0]} defaultRight={body.ventilationRate[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -283,7 +284,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='100' step_count='1' defaultLeft='0' defaultRight='100'/>
+                            <CustomSlider className="addlControl" min='0' max='100' step_count='1' defaultLeft={body.addlControl[0]} defaultRight={body.addlControl[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -294,7 +295,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='1' step_count='0.01' defaultLeft='0' defaultRight='1'/>
+                            <CustomSlider className="decayRate" min='0' max='1' step_count='0.01' defaultLeft={body.decayRate[0]} defaultRight={body.decayRate[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -305,7 +306,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='1.5' step_count='0.1' defaultLeft='0.3' defaultRight='1.5'/>
+                            <CustomSlider className="depositionRate" min='0' max='1.5' step_count='0.1' defaultLeft={body.depositionRate[0]} defaultRight={body.depositionRate[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -316,7 +317,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0.0' max='0.02' step_count='0.001' defaultLeft='0.005' defaultRight='0.010'/>
+                            <CustomSlider className="facultyInhalation" min='0.0' max='0.02' step_count='0.001' defaultLeft={body.facultyInhalation[0]} defaultRight={body.facultyInhalation[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <div className='input-line'>
@@ -327,7 +328,7 @@ function AdvancedClassroom(){
                             </OverlayTrigger><br/>
                         </div>
                         <div className='slider-bar'>
-                            <CustomSlider min='0' max='0.02' step_count='0.001' defaultLeft='0.005' defaultRight='0.007'/>
+                            <CustomSlider className="studentInhalation" min='0' max='0.02' step_count='0.001' defaultLeft={body.studentInhalation[0]} defaultRight={body.studentInhalation[1]} changeLeft = {changeLeft} changeRight = {changeRight}/>
                         </div>
                     </div>
                     <p className='directions'><strong>For the below variables, please click the links before specifying.</strong></p>
@@ -355,9 +356,9 @@ function AdvancedClassroom(){
                     </div>
                     <br/>
                 </div>
-                <a className='button-holder' href="/results">
-                    <button className="calc-button" onClick = {calculate}><strong>CALCULATE</strong></button>
-                </a>
+                <a className='button-holder' id='link' href="/results">
+                    <button id="calc" className="calc-button" onClick={calculate}><strong>CALCULATE</strong></button>
+                </a>  
             </div>
         </div>
     )
