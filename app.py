@@ -3,7 +3,8 @@ import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
 from flask import Flask, request, jsonify, send_from_directory, render_template
-app = Flask(__name__, template_folder="./build")
+# app = Flask(__name__, template_folder="./build")
+app = Flask(__name__, static_folder='./build')
 # app = Flask(__name__, static_folder='./build', static_url_path='/')
 # app = Flask(__name__, static_url_path='', static_folder='./build/static', template_folder='./build/templates')
 # app = Flask(__name__, static_folder='./build', static_url_path='')
@@ -16,13 +17,21 @@ studentResults = None
 facultyResults = None
 
 
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
+
 # @app.errorhandler(404)
 # def not_found(e):
 #     return app.send_static_file('index.html')
 
-@app.route('/')
-def index():
-    return render_template('main.html')
+# @app.route('/')
+# def index():
+#     return render_template('main.html')
 
 # @app.route('/')
 # def index():
