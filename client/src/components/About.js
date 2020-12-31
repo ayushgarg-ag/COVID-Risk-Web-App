@@ -34,7 +34,7 @@ function About(){
                     an offshoot of the COVID-19 risk estimator developed by Jose Jimenez.
                 </p>
                 <p className="team-subtitle"><strong>FRONT END</strong><br/>Donghan Park, Helen Xiao, Kevin Yin, Jennifer Schultz, Ayush Garg</p>
-                <p className="team-subtitle"><strong>BACK END</strong><br/>Akash Mullick, Ameya Rao</p>
+                <p className="team-subtitle"><strong>BACK END</strong><br/>Ayush Garg, Akash Mullick, Ameya Rao, Jerry Hou</p>
                 <p className="team-subtitle"><strong>MOBILE DEVELOPMENT</strong><br/>Jerry Hou, Isabel Garfinkel</p>
             </div>
         </nav>

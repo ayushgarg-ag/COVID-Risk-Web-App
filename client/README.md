@@ -11,7 +11,7 @@ This probabilistic Monte Carlo framework was developed by <b>Prasad Kasibhatla</
 Donghan Park, Helen Xiao, Kevin Yin, Jennifer Schultz, Ayush Garg
 
 ### BACK END
-Akash Mullick, Ameya Rao
+Ayush Garg, Akash Mullick, Ameya Rao, Jerry Hou
 
 ### MOBILE DEVELOPMENT
 Jerry Hou, Isabel Garfinkel
