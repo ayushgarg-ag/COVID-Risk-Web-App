@@ -12,7 +12,7 @@ from flask import Flask, request, jsonify, send_from_directory, render_template
 # app = Flask(__name__, static_url_path='', static_folder='build', template_folder='build')
 # app = Flask(__name__, static_folder="build/static", template_folder="build")
 # app = Flask(__name__, static_folder='./build', static_url_path='/')
-app = Flask(__name__, static_url_path='', static_folder='build')
+app = Flask(__name__, static_url_path='', static_folder='client/build')
 
 studentInfectious = None
 facultyInfectious = None
