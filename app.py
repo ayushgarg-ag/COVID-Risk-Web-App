@@ -20,13 +20,13 @@ facultyResults = None
 # def not_found(e):
 #     return app.send_static_file('index.html')
 
-# @app.route('/')
-# def index():
-#     return "<h1>Welcome to our server !!</h1>"
-
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return "<h1>Welcome to our server !!</h1>"
+
+# @app.route('/')
+# def index():
+#     return send_from_directory(app.static_folder, 'index.html')
     # return render_template('main.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
