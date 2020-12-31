@@ -1,4 +1,5 @@
 # COVID-19 Exposure Modeler
+## <a href="https://covid-risk-calculator.herokuapp.com/">View the live app here</a>
 ## About the Model
 This is a tool to help understand COVID-19 transmission risk to students and teachers/professors due to transmission by microscopic airborne particles (i.e. aerosols) in classroom settings. This is not an infectious disease dynamics model, but rather a model that predicts airborne virion concentrations within a classroom, taking into account exhalation of virion-containing aerosols by infected individuals and the loss of these particles due to various processes. Probabilities of infection are calculated based on the virion dose inhaled (accounting for use of masks) by uninfected people in the classroom.
 
