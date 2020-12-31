@@ -47,19 +47,6 @@ def calculateAdvanced(numFaculty, numStudents, numSessions, durationSessions, cl
     # percent_faculty_infectious = [0.7, 1.4, 0]
     # percent_student_infectious = [0.7, 1.4, 0]
 
-    # print(ventilation_w_outside_air)
-    # print(decay_rate_of_virus)
-    # print(deposition_to_surface)
-    # print(additional_control_measures)
-    # print(quanta_emission_rate_faculty)
-    # print(quanta_emission_rate_student)
-    # print(exhalation_mask_efficiency)
-    # print(inhalation_mask_efficiency)
-    # print(inhalation_rate_faculty)
-    # print(inhalation_rate_student)
-    # print(percent_faculty_infectious)
-    # print(percent_student_infectious)
-
     ############################
 
     def randomizeAll():

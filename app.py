@@ -3,15 +3,6 @@ import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
 from flask import Flask, request, jsonify, send_from_directory, render_template
-# app = Flask(__name__)
-# app = Flask(__name__, template_folder="./build")
-# app = Flask(__name__, static_folder='./build')
-# app = Flask(__name__, static_folder='./build', static_url_path='/')
-# app = Flask(__name__, static_url_path='', static_folder='build/static', template_folder='build/templates')
-# app = Flask(__name__, static_folder='./build', static_url_path='')
-# app = Flask(__name__, static_url_path='', static_folder='build', template_folder='build')
-# app = Flask(__name__, static_folder="build/static", template_folder="build")
-# app = Flask(__name__, static_folder='./build', static_url_path='/')
 app = Flask(__name__, static_url_path='', static_folder='client/build')
 
 studentInfectious = None
@@ -21,31 +12,13 @@ facultyNum = None
 studentResults = None
 facultyResults = None
 
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def serve(path):
-#     if path != "" and os.path.exists(app.static_folder + '/' + path):
-#         return send_from_directory(app.static_folder, path)
-#     else:
-#         return send_from_directory(app.static_folder, 'index.html')
-
 @app.errorhandler(404)
 def not_found(e):
     return app.send_static_file('index.html')
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
-
-# @app.route('/')
-# def index():
-#     return send_from_directory(app.static_folder, 'index.html')
-    # return render_template('main.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
@@ -184,5 +157,3 @@ def formdataadvanced():
 #     app.run(host="localhost", port=5000, debug=True)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
-# if __name__ == '__main__':
-#     app.run()
