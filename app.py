@@ -3,9 +3,10 @@ import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
 from flask import Flask, request, jsonify, send_from_directory, render_template
-app = Flask(__name__)
+# app = Flask(__name__)
 # app = Flask(__name__, static_folder='./build', static_url_path='/')
 # app = Flask(__name__, static_url_path='', static_folder='./build/static', template_folder='./build/templates')
+app = Flask(__name__, static_folder='./build', static_url_path='')
 
 studentInfectious = None
 facultyInfectious = None
@@ -25,8 +26,8 @@ facultyResults = None
 
 @app.route('/')
 def index():
-    # return send_from_directory(app.static_folder, 'index.html')
-    return render_template('main.html')
+    return send_from_directory(app.static_folder, 'index.html')
+    # return render_template('main.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
