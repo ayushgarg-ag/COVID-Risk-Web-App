@@ -10,7 +10,8 @@ from flask import Flask, request, jsonify, send_from_directory, render_template
 # app = Flask(__name__, static_url_path='', static_folder='build/static', template_folder='build/templates')
 # app = Flask(__name__, static_folder='./build', static_url_path='')
 # app = Flask(__name__, static_url_path='', static_folder='build', template_folder='build')
-app = Flask(__name__, static_folder="build/static", template_folder="build")
+# app = Flask(__name__, static_folder="build/static", template_folder="build")
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 
 
 studentInfectious = None
@@ -33,9 +34,13 @@ facultyResults = None
 # def not_found(e):
 #     return app.send_static_file('index.html')
 
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 
 # @app.route('/')
 # def index():
@@ -177,5 +182,5 @@ def formdataadvanced():
 
 # if __name__ == '__main__':
 #     app.run(host="localhost", port=5000, debug=True)
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
