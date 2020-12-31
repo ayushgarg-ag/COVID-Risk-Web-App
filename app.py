@@ -3,11 +3,9 @@ import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
 from flask import Flask, request, jsonify, send_from_directory, render_template
-# app = Flask(__name__)
+app = Flask(__name__)
 # app = Flask(__name__, static_folder='./build', static_url_path='/')
-app = Flask(__name__, static_url_path='',
-            static_folder='./build/static',
-            template_folder='./build/templates')
+# app = Flask(__name__, static_url_path='', static_folder='./build/static', template_folder='./build/templates')
 
 studentInfectious = None
 facultyInfectious = None
@@ -20,6 +18,10 @@ facultyResults = None
 # @app.errorhandler(404)
 # def not_found(e):
 #     return app.send_static_file('index.html')
+
+# @app.route('/')
+# def index():
+#     return "<h1>Welcome to our server !!</h1>"
 
 @app.route('/')
 def index():
