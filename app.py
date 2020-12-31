@@ -2,7 +2,7 @@ import json
 import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, send_from_directory
 # app = Flask(__name__)
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 
@@ -20,11 +20,7 @@ def not_found(e):
 
 @app.route('/')
 def index():
-    return "<h1>Welcome to our server !!</h1>"
-
-# @app.route('/')
-# def index():
-#     return app.send_static_file('index.html')
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
