@@ -19,8 +19,7 @@ facultyResults = None
 
 @app.route('/')
 def index():
-    # return app.send_static_file('index.html')
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
