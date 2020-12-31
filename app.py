@@ -2,9 +2,10 @@ import json
 import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template
 # app = Flask(__name__)
-app = Flask(__name__, static_folder='./build', static_url_path='/')
+# app = Flask(__name__, static_folder='./build', static_url_path='/')
+app = Flask(__name__, static_folder="build/static", template_folder="build")
 
 studentInfectious = None
 facultyInfectious = None
@@ -20,7 +21,8 @@ def not_found(e):
 
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    # return send_from_directory(app.static_folder, 'index.html')
+    return render_template('index.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
