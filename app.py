@@ -1,7 +1,7 @@
 import json
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 # app = Flask(__name__)
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 
@@ -19,7 +19,8 @@ facultyResults = None
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    # return app.send_static_file('index.html')
+    return render_template('index.html')
 
 @app.route('/api/classroombasic', methods=['POST', 'GET'])
 def formdata():
