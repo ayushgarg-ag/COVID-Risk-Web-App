@@ -8,6 +8,7 @@ from flask import Flask, request, jsonify, send_from_directory, render_template
 app = Flask(__name__, static_url_path='',
             static_folder='build',
             template_folder='build')
+
 studentInfectious = None
 facultyInfectious = None
 studentNum = None
