@@ -1,5 +1,4 @@
 import json
-import os
 from calculation import calculate
 from calculationAdvanced import calculateAdvanced
 from flask import Flask, request, jsonify
@@ -128,8 +127,6 @@ def formdataadvanced():
 
         studentNum, facultyNum, studentResults, facultyResults, facultyInfectious, studentInfectious = calculateAdvanced(
             numFaculty, numStudents, numSessions, durationSessions, classFloorArea, classHeight, county, state, masks, facultyInfectious, studentInfectious, maskEffExhalation, maskEffInhalation, ventilationRate, addlControl, decayRate, depositionRate, facultyInhalation, studentInhalation, meanFacultyQuantaE, sdFacultyQuantaE, meanStudentQuantaE, sdStudentQuantaE)
-
-        print("advanced")
 
         while studentResults is None or facultyResults is None or studentNum is None or facultyNum is None:
             pass
